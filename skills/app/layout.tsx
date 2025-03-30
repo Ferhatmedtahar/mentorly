@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/ui/theme-provider";
 import type { Metadata } from "next";
 
 import localFont from "next/font/local";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const workSans = localFont({
@@ -79,7 +80,8 @@ export default function RootLayout({
           <header>
             <Navbar />
           </header>
-          <main className="container mx-auto">{children}</main>
+          {children}
+          <Toaster expand={false} richColors />
           <Footer />
         </ThemeProvider>
       </body>
