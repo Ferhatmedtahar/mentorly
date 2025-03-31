@@ -7,7 +7,7 @@
   /* ===== CORE COLORS ===== */
 
   /* Primary Pink (#FF2171) with shades */
-  --color-primary-50: hsl(338, 100%, 96%);
+  --color-primary-50: hsl(338, 100%, 97%);
   --color-primary-100: hsl(338, 100%, 92%);
   --color-primary-200: hsl(338, 100%, 84%);
   --color-primary-300: hsl(338, 100%, 76%);
@@ -69,6 +69,11 @@
   --color-card-foreground: hsl(240, 10%, 3.9%);
   --color-popover: hsl(0, 0%, 100%);
   --color-popover-foreground: hsl(240, 10%, 3.9%);
+  /*shadows*/
+
+  --shadow-100: 2px 2px 0px 0px rgb(0, 0, 0);
+  --shadow-200: 2px 2px 0px 2px rgb(0, 0, 0);
+  --shadow-300: 2px 2px 0px 2px rgb(238, 43, 105);
 
   /* Border radius */
   --radius: 0.625rem;
@@ -211,7 +216,7 @@ body {
   }
 
   .text-30-bold {
-    @apply text-[30px] font-bold text-white;
+    @apply text-[30px] font-bold;
   }
 
   .text-30-semibold {
@@ -246,6 +251,9 @@ body {
     @apply font-medium text-[20px] text-white max-w-2xl text-center break-words;
   }
 
+  .startup-card {
+    @apply bg-white border-[2px] border-black py-6 px-5 rounded-[22px] shadow-200 hover:border-primary-500 transition-all duration-500 hover:shadow-300 hover:bg-primary-50;
+  }
   .section-container {
     @apply px-6 py-10 max-w-7xl mx-auto;
   }

@@ -94,26 +94,26 @@ const mockProjects = [
 const FeaturedProjects = () => {
   return (
     <section className="py-12 md:py-16 bg-background max-container padding-container">
-      <div className="container">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-2xl md:text-3xl font-bold">Featured Projects</h2>
-          <Button
-            variant="outline"
-            className="border-brand-pink text-brand-pink hover:bg-brand-pink hover:text-white"
-            asChild
-          >
-            <Link href="/projects">
-              View All
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-        </div>
+      <div className="flex justify-between items-center mb-8 ">
+        <h2 className="text-2xl md:text-3xl text-30-bold text-black">
+          Featured Projects
+        </h2>
+        <Button
+          variant="outline"
+          className="border-brand-pink text-brand-pink hover:bg-primary-500 hover:border-primary-800 hover:text-white transition-colors duration-200 ease-in-out"
+          asChild
+        >
+          <Link href="/projects">
+            View All
+            <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
+        </Button>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {mockProjects.map((project) => (
-            <ProjectCard key={project.id} {...project} />
-          ))}
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {mockProjects.map((project) => (
+          <ProjectCard key={project.id} {...project} />
+        ))}
       </div>
     </section>
   );

@@ -1,3 +1,3 @@
-export default function Projects() {
-  return <div>Projects page</div>;
+export default function page() {
+  return <div>projects page</div>;
 }

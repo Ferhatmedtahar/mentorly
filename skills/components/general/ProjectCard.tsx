@@ -45,17 +45,17 @@ const ProjectCard = ({
           </Avatar>
           <span className="text-16-medium">{author.name}</span>
         </Link>
-        <button className="text-muted-foreground hover:text-primary transition-colors">
+        <button className="text-muted-foreground hover:text-primary transition-colors  cursor-pointer">
           <Heart size={18} />
         </button>
       </div>
 
       <Link href={`/projects/${slug}`} className="block group">
-        <h3 className="text-26-semibold group-hover:text-primary transition-colors line-clamp-2">
+        <h3 className="text-26-semibold  transition-colors line-clamp-2">
           {title}
         </h3>
-        <p className="startup-card-desc">{description}</p>
       </Link>
+      <p className="startup-card-desc my-2">{description}</p>
 
       <div className="flex flex-wrap gap-2 mb-4">
         {skills.slice(0, 3).map((skill) => (
@@ -71,12 +71,15 @@ const ProjectCard = ({
       </div>
 
       <div className="flex justify-between items-center">
-        <Badge variant="default" className="text-xs bg-primary text-white">
+        <Badge
+          variant="default"
+          className="text-xs bg-primary text-white cursor-default"
+        >
           {collaborationType}
         </Badge>
         <Link
           href={`/projects/${slug}`}
-          className="text-xs font-medium text-primary hover:underline"
+          className="text-xs font-medium text-primary-700 hover:underline hover:underline-offset-2 transition-all duration-200 ease-in-out"
         >
           View Details →
         </Link>

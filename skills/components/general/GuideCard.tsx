@@ -9,7 +9,7 @@ interface GuideCardProps {
 
 export default function GuideCard({ heading, desc, icon }: GuideCardProps) {
   const baseStyles = twMerge(
-    "p-6 text-center shadow-sm rounded-lg border transition-colors duration-200 ease-in-out",
+    " startup-card p-6 text-center shadow-sm rounded-lg border transition-colors duration-200 ease-in-out ",
     "bg-white dark:bg-background border-primary-400 dark:border-primary-700",
     "text-primary-600 dark:text-white",
     "hover:bg-primary-50 dark:hover:bg-primary-900 hover:border-primary-300 dark:hover:border-primary-600"
