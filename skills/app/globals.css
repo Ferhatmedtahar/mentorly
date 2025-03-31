@@ -7,83 +7,71 @@
   /* ===== CORE COLORS ===== */
 
   /* Primary Pink (#FF2171) with shades */
-
-  --color-primary-50: 338 100% 96%; /* Lightest */
-  --color-primary-100: 338 100% 92%;
-  --color-primary-200: 338 100% 84%;
-  --color-primary-300: 338 100% 76%;
-  --color-primary-400: 338 100% 68%;
-  --color-primary-500: 338 100% 60%;
-  --color-primary-600: 338 100% 53%; /* Default primary */
-  --color-primary-700: 338 100% 45%;
-  --color-primary-800: 338 100% 37%;
-  --color-primary-900: 338 100% 29%; /* Darkest */
+  --color-primary-50: hsl(338, 100%, 96%);
+  --color-primary-100: hsl(338, 100%, 92%);
+  --color-primary-200: hsl(338, 100%, 84%);
+  --color-primary-300: hsl(338, 100%, 76%);
+  --color-primary-400: hsl(338, 100%, 68%);
+  --color-primary-500: hsl(338, 100%, 60%);
+  --color-primary-600: hsl(338, 100%, 53%);
+  --color-primary-700: hsl(338, 100%, 45%);
+  --color-primary-800: hsl(338, 100%, 37%);
+  --color-primary-900: hsl(338, 100%, 29%);
 
   /* Secondary Blue (#2b69ee) with shades */
-  --color-secondary-50: 220 85% 96%; /* Lightest */
-  --color-secondary-100: 220 85% 90%;
-  --color-secondary-200: 220 85% 80%;
-  --color-secondary-300: 220 85% 70%;
-  --color-secondary-400: 220 85% 60%;
-  --color-secondary-500: 220 85% 55%;
-  --color-secondary-600: 220 85% 48%; /* Default secondary */
-  --color-secondary-700: 220 85% 40%;
-  --color-secondary-800: 220 85% 32%;
-  --color-secondary-900: 220 85% 24%; /* Darkest */
+  --color-secondary-50: hsl(220, 85%, 96%);
+  --color-secondary-100: hsl(220, 85%, 90%);
+  --color-secondary-200: hsl(220, 85%, 80%);
+  --color-secondary-300: hsl(220, 85%, 70%);
+  --color-secondary-400: hsl(220, 85%, 60%);
+  --color-secondary-500: hsl(220, 85%, 55%);
+  --color-secondary-600: hsl(220, 85%, 48%);
+  --color-secondary-700: hsl(220, 85%, 40%);
+  --color-secondary-800: hsl(220, 85%, 32%);
+  --color-secondary-900: hsl(220, 85%, 24%);
 
   /* ===== LIGHT THEME COLORS ===== */
-
-  /* Base colors */
-  --color-background: 0 0% 100%; /* White */
-  --color-foreground: 240 10% 3.9%; /* Near black for text */
-
-  /* Main theme colors */
-  --color-primary: var(--color-primary); /* Your pink */
-  --color-primary-foreground: 0 0% 100%; /* White text on pink */
-
-  --color-secondary: var(--color-secondary); /* Your blue */
-  --color-secondary-foreground: 0 0% 100%; /* White text on blue */
-
-  /* Supporting UI colors */
-  --color-muted: 240 4.8% 95.9%; /* Light gray background */
-  --color-muted-foreground: 240 3.8% 46.1%; /* Medium gray text */
-
-  --color-accent: 240 4.8% 95.9%; /* Light gray for accents */
-  --color-accent-foreground: 240 5.9% 10%; /* Dark gray text on accents */
-
-  --color-destructive: 0 84.2% 60.2%; /* Red for warnings/delete */
-  --color-destructive-foreground: 0 0% 98%; /* White text on red */
-
-  /* Border and input colors */
-  --color-border: 240 5.9% 90%; /* Light gray for borders */
-  --color-input: 240 5.9% 90%; /* Light gray for input backgrounds */
-  --color-ring: 240 5.9% 10%; /* Dark color for focus rings */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--color-primary-600);
+  --color-primary-foreground: hsl(0, 0%, 100%);
+  --color-secondary: var(--color-secondary-600);
+  --color-secondary-foreground: hsl(0, 0%, 100%);
+  --color-muted: hsl(240, 4.8%, 95.9%);
+  --color-muted-foreground: hsl(240, 3.8%, 46.1%);
+  --color-accent: hsl(240, 4.8%, 95.9%);
+  --color-accent-foreground: hsl(240, 5.9%, 10%);
+  --color-destructive: hsl(0, 84.2%, 60.2%);
+  --color-destructive-foreground: hsl(0, 0%, 98%);
+  --color-border: hsl(240, 5.9%, 90%);
+  --color-input: hsl(240, 5.9%, 90%);
+  --color-ring: hsl(240, 5.9%, 10%);
 
   /* Chart colors */
   --color-chart-1: var(--color-primary-500);
   --color-chart-2: var(--color-secondary-500);
-  --color-chart-3: 338 85% 45%;
-  --color-chart-4: 220 70% 60%;
-  --color-chart-5: 338 60% 65%;
+  --color-chart-3: hsl(338, 85%, 45%);
+  --color-chart-4: hsl(220, 70%, 60%);
+  --color-chart-5: hsl(338, 60%, 65%);
 
   /* Sidebar colors */
-  --color-sidebar: 0 0% 98%; /* Off-white background */
-  --color-sidebar-foreground: 240 5.3% 26.1%; /* Dark gray text */
-  --color-sidebar-primary: var(--color-primary-600); /* Pink for active items */
-  --color-sidebar-primary-foreground: 0 0% 98%; /* White text on pink */
-  --color-sidebar-accent: 240 4.8% 95.9%; /* Light gray for hover states */
-  --color-sidebar-accent-foreground: 240 5.9% 10%; /* Dark text on hover */
-  --color-sidebar-border: 220 13% 91%; /* Light gray borders */
-  --color-sidebar-ring: 217.2 91.2% 59.8%; /* Blue focus rings */
+  --color-sidebar: hsl(0, 0%, 98%);
+  --color-sidebar-foreground: hsl(240, 5.3%, 26.1%);
+  --color-sidebar-primary: var(--color-primary-600);
+  --color-sidebar-primary-foreground: hsl(0, 0%, 98%);
+  --color-sidebar-accent: hsl(240, 4.8%, 95.9%);
+  --color-sidebar-accent-foreground: hsl(240, 5.9%, 10%);
+  --color-sidebar-border: hsl(220, 13%, 91%);
+  --color-sidebar-ring: hsl(217.2, 91.2%, 59.8%);
 
   /* Card and popover colors */
-  --color-card: 0 0% 100%; /* White background */
-  --color-card-foreground: 240 10% 3.9%; /* Near black text */
-  --color-popover: 0 0% 100%; /* White background */
-  --color-popover-foreground: 240 10% 3.9%; /* Near black text */
+  --color-card: hsl(0, 0%, 100%);
+  --color-card-foreground: hsl(240, 10%, 3.9%);
+  --color-popover: hsl(0, 0%, 100%);
+  --color-popover-foreground: hsl(240, 10%, 3.9%);
 
   /* Border radius */
-  --radius: 0.625rem; /* Base radius */
+  --radius: 0.625rem;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -92,7 +80,7 @@
   /* Animations */
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;
-
+  --animate-glow: glow 5s infinite alternate ease-in-out;
   @keyframes accordion-down {
     from {
       height: 0;
@@ -108,6 +96,20 @@
     }
     to {
       height: 0;
+    }
+  }
+  @keyframes glow {
+    0% {
+      transform: translate(-30%, -30%);
+      opacity: 0.5;
+    }
+    50% {
+      transform: translate(30%, 30%);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translate(-30%, -30%);
+      opacity: 0.5;
     }
   }
 }
@@ -209,7 +211,7 @@ body {
   }
 
   .text-30-bold {
-    @apply text-[30px] font-bold text-black;
+    @apply text-[30px] font-bold text-white;
   }
 
   .text-30-semibold {
@@ -235,10 +237,19 @@ body {
   .text-14-normal {
     @apply font-normal text-sm text-white/80;
   }
-  /* pattern */
-  .pink-container {
-    @apply relative w-full bg-primary  min-h-[530px]  flex justify-center items-center flex-col py-10 px-6;
+
+  .heading {
+    @apply uppercase bg-black px-6 py-3  font-extrabold text-white sm:text-[54px]  sm:leading-[64px] text-[36px] leading-[46px] max-w-5xl text-center my-5;
   }
+
+  .sub-heading {
+    @apply font-medium text-[20px] text-white max-w-2xl text-center break-words;
+  }
+
+  .section-container {
+    @apply px-6 py-10 max-w-7xl mx-auto;
+  }
+  /* pattern */
   .pattern {
     background-image: repeating-linear-gradient(
       to right,
@@ -252,15 +263,28 @@ body {
     background-repeat: repeat-x;
   }
 
-  .heading {
-    @apply uppercase bg-black px-6 py-3  font-extrabold text-white sm:text-[54px]  sm:leading-[64px] text-[36px] leading-[46px] max-w-5xl text-center my-5;
+  .pink-container {
+    @apply relative w-full min-h-[530px] flex justify-center items-center flex-col py-10 px-6 my-10;
+    @apply bg-gradient-to-bl from-primary-500 to-secondary-500 text-white;
+    @apply shadow-lg overflow-hidden;
+    @apply transition-all duration-300 hover:shadow-2xl;
+
+    /* Moving Glow Effect */
+    @apply before:absolute before:inset-0 before:bg-white/5 before:blur-xl before:opacity-0 hover:before:opacity-100;
+    @apply before:animate-glow;
   }
 
-  .sub-heading {
-    @apply font-medium text-[20px] text-white max-w-2xl text-center break-words;
-  }
+  /* Keyframes for Glow Animation */
 
-  .section-container {
-    @apply px-6 py-10 max-w-7xl mx-auto;
+  /* Apply animation */
+  .pink-container::before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    top: -10%;
+    left: -10%;
+    background: radial-gradient(circle, #ff1f3f22 10%, transparent 60%);
+    z-index: -1;
   }
 }

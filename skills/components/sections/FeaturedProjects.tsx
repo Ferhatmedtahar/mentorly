@@ -93,7 +93,7 @@ const mockProjects = [
 
 const FeaturedProjects = () => {
   return (
-    <section className="py-12 md:py-16 bg-background">
+    <section className="py-12 md:py-16 bg-background max-container padding-container">
       <div className="container">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-2xl md:text-3xl font-bold">Featured Projects</h2>

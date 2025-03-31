@@ -5,80 +5,69 @@ import {
   UsersIcon,
 } from "lucide-react";
 import Link from "next/link";
+import GuideCard from "../general/GuideCard";
 import { Button } from "../ui/button";
 
 export default function Explaination() {
+  const guideCards = [
+    {
+      heading: "Share Your Idea",
+      desc: "Create a project listing detailing your vision, goals, and the type of help you need.",
+      icon: <LightbulbIcon className="h-6 w-6 " />,
+    },
+    {
+      heading: "Connect",
+      desc: "Get matched with mentors or collaborators who have the expertise you're looking for.",
+      icon: <UsersIcon className="h-6 w-6 text-brand-pink" />,
+    },
+    {
+      heading: "Learn and Grow",
+      desc: "Access resources and support to help you achieve your goals.",
+      icon: <BookOpenIcon className="h-6 w-6 " />,
+    },
+  ];
   return (
     <>
-      <section className="py-12 md:py-16 bg-brand-gray">
-        <div className="container">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-10">
-            How It Works
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="w-12 h-12 bg-brand-pink/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <LightbulbIcon className="h-6 w-6 text-brand-pink" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Share Your Idea</h3>
-              <p className="text-muted-foreground">
-                Create a project listing detailing your vision, goals, and the
-                type of help you need.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="w-12 h-12 bg-brand-pink/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <UsersIcon className="h-6 w-6 text-brand-pink" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Connect</h3>
-              <p className="text-muted-foreground">
-                Get matched with mentors or collaborators who have the expertise
-                you&apos;re looking for.
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-lg shadow-sm text-center">
-              <div className="w-12 h-12 bg-brand-pink/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <BookOpenIcon className="h-6 w-6 text-brand-pink" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Build Together</h3>
-              <p className="text-muted-foreground">
-                Collaborate effectively to bring your project to life with
-                support and guidance.
-              </p>
-            </div>
-          </div>
+      <section className="py-12 md:py-16 max-container padding-container ">
+        <h2 className="text-30-bold text-center mb-10">How It Works</h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {guideCards.map((card, index) => (
+            <GuideCard
+              key={`guide-card-${index}`}
+              heading={card.heading}
+              desc={card.desc}
+              icon={card.icon}
+            />
+          ))}
         </div>
       </section>
 
-      <section className="py-16 md:py-20 bg-brand-dark text-white">
-        <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Launch Your Idea?
-          </h2>
-          <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-            Join our community of innovators, mentors, and collaborators to turn
-            your vision into reality.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              className="bg-brand-pink hover:bg-brand-pink/90 text-white"
-              size="lg"
-              asChild
-            >
-              <Link href="/create-project">
-                Start a Project
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-brand-dark"
-              size="lg"
-              asChild
-            >
-              <Link href="/projects">Explore Projects</Link>
-            </Button>
-          </div>
+      <section className="py-16 md:py-20 pink-container text-center text-white max-container padding-container ">
+        <h2 className="text-30-bold mb-4 ">Ready to Launch Your Idea?</h2>
+        <p className="text-xl text-white/80 dark:text-white/90 mb-8 max-w-2xl mx-auto">
+          Join our community of innovators, mentors, and collaborators to turn
+          your vision into reality.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Button
+            className="bg-primary-600 hover:bg-primary-700 text-white"
+            size="lg"
+            asChild
+          >
+            <Link href="/create-project">
+              Start a Project
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+          <Button
+            variant="outline"
+            className="border-white text-white hover:bg-transparent hover:text-white "
+            size="lg"
+            asChild
+          >
+            <Link href="/projects">Explore Projects</Link>
+          </Button>
         </div>
       </section>
     </>
