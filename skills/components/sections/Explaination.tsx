@@ -43,33 +43,33 @@ export default function Explaination() {
         </div>
       </section>
 
-      <section className="py-16 md:py-20 pink-container text-center text-white max-container padding-container ">
-        <h2 className="text-30-bold mb-4  text-white">
-          Ready to Launch Your Idea?
-        </h2>
-        <p className="text-xl text-white/80 dark:text-white/90 mb-8 max-w-2xl mx-auto">
-          Join our community of innovators, mentors, and collaborators to turn
-          your vision into reality.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button
-            className="bg-primary-600 hover:bg-primary-700 text-white"
-            size="lg"
-            asChild
-          >
-            <Link href="/create-project">
-              Start a Project
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-          <Button
-            variant="outline"
-            className="border-white text-white hover:bg-transparent hover:text-white "
-            size="lg"
-            asChild
-          >
-            <Link href="/projects">Explore Projects</Link>
-          </Button>
+      <section className="py-16 md:py-20 pink-container text-center text-white  ">
+        <div className="max-container padding-container">
+          <h2 className="text-36-bold mb-4  ">Ready to Launch Your Idea?</h2>
+          <p className="text-xl text-white/80 dark:text-white/90 mb-8 max-w-2xl mx-auto">
+            Join our community of innovators, mentors, and collaborators to turn
+            your vision into reality.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              className="bg-primary-600 hover:bg-primary-700 text-white"
+              size="lg"
+              asChild
+            >
+              <Link href="/create-project">
+                Start a Project
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button
+              variant="outline"
+              className="border-white text-white hover:bg-transparent hover:text-white "
+              size="lg"
+              asChild
+            >
+              <Link href="/projects">Explore Projects</Link>
+            </Button>
+          </div>
         </div>
       </section>
     </>

@@ -211,8 +211,19 @@ body {
     @apply flex justify-between items-center;
   }
 
-  .text-30-extrabold {
-    @apply text-[30px] font-extrabold text-white;
+  .text-36-extrabold {
+    @apply text-[36px] font-extrabold text-white;
+  }
+
+  .text-36-bold {
+    @apply text-[36px] font-bold;
+  }
+
+  .text-36-semibold {
+    @apply font-semibold text-[36px] text-black;
+  }
+  .text-36-extrabold {
+    @apply text-[36px] font-extrabold text-white;
   }
 
   .text-30-bold {
