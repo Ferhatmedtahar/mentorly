@@ -188,17 +188,6 @@
   --color-sidebar-border: oklch(1 0 0 / 10%);
   --color-sidebar-ring: oklch(0.551 0.027 264.364);
 }
-@utility max-container {
-  @apply mx-auto max-w-[1440px];
-}
-
-@utility padding-container {
-  @apply 2xl:px-0 px-6 lg:px-16;
-}
-
-@utility flexCenter {
-  @apply flex items-center justify-center;
-}
 
 body {
   background: var(--background);
@@ -207,6 +196,16 @@ body {
 }
 
 @layer utilities {
+  .max-container {
+    @apply mx-auto max-w-[1440px];
+  }
+  .padding-container {
+    @apply 2xl:px-0 px-6 lg:px-16;
+  }
+  .flexCenter {
+    @apply flex items-center justify-center;
+  }
+
   .flex-between {
     @apply flex justify-between items-center;
   }
@@ -221,9 +220,6 @@ body {
 
   .text-36-semibold {
     @apply font-semibold text-[36px] text-black;
-  }
-  .text-36-extrabold {
-    @apply text-[36px] font-extrabold text-white;
   }
 
   .text-30-bold {
@@ -283,7 +279,7 @@ body {
   }
 
   .pink-container {
-    @apply relative w-full min-h-[530px] flex justify-center items-center flex-col py-10 px-6 my-10;
+    @apply relative w-full min-h-[530px] flex justify-center items-center flex-col py-10 px-6;
     @apply bg-gradient-to-bl from-primary-500 to-secondary-500 text-white;
     @apply shadow-lg overflow-hidden;
     @apply transition-all duration-300 hover:shadow-2xl;

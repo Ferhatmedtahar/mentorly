@@ -4,11 +4,11 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <section className="py-12 md:py-20 bg-brand-pink relative overflow-hidden ">
+    <section className="py-12 md:py-20  relative overflow-hidden ">
       <div className="absolute inset-0 bg-primary pattern opacity-90"></div>
       <div className="max-container padding-container relative z-10">
         <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+          <h1 className=" heading text-4xl md:text-5xl lg:text-6xl font-bold text-white">
             PITCH YOUR STARTUP,
             <br />
             CONNECT WITH ENTREPRENEURS
