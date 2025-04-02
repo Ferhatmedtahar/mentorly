@@ -3,6 +3,7 @@ import Navbar from "@/components/navigation/Navbar";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import type { Metadata } from "next";
 
+import { AuthProvider } from "@/providers/auth-provider";
 import localFont from "next/font/local";
 import { Toaster } from "sonner";
 import "./globals.css";
@@ -71,19 +72,21 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${workSans.className} antialiased   `}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <header className="sticky top-0 z-50 ">
-            <Navbar />
-          </header>
-          {children}
-          <Toaster expand={false} richColors />
-          <Footer />
-        </ThemeProvider>
+        <AuthProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <header className="sticky top-0 z-50 ">
+              <Navbar />
+            </header>
+            {children}
+            <Toaster expand={false} richColors />
+            <Footer />
+          </ThemeProvider>
+        </AuthProvider>
       </body>
     </html>
   );

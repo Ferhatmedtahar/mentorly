@@ -27,7 +27,8 @@ const Hero = () => {
               />
             </div>
             <Button
-              className="bg-white text-brand-pink hover:bg-white/90"
+              className=" border dark:bg-secondary-500 dark:hover:bg-secondary-600 bg-white text-black dark:border-secondary-600 dark:text-white border-primary-600 text-brand-pink hover:bg-primary-400 hover:border-primary-700 hover:text-white transition-colors duration-200 ease-in-out"
+              size="lg"
               asChild
             >
               <Link href="/projects">

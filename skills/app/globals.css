@@ -72,8 +72,9 @@
   /*shadows*/
 
   --shadow-100: 2px 2px 0px 0px rgb(0, 0, 0);
+  --shadow-primary-100: 2px 2px 0px 0px hsl(338, 100%, 45%);
   --shadow-200: 2px 2px 0px 2px rgb(0, 0, 0);
-  --shadow-300: 2px 2px 0px 2px rgb(238, 43, 108);
+  --shadow-300: 2px 2px 0px 2px hsl(338, 100%, 45%);
 
   /* Border radius */
   --radius: 0.625rem;
@@ -210,6 +211,9 @@ body {
     @apply flex justify-between items-center;
   }
 
+  .login {
+    @apply !border-[5px] py-4 border-primary-700  relative shadow-primary-100  font-medium hover:shadow-none transition-all duration-500;
+  }
   .text-36-extrabold {
     @apply text-[36px] font-extrabold text-white;
   }
@@ -307,7 +311,8 @@ body {
       135deg,
       var(--color-secondary-700) 0%,
       var(--color-secondary-400) 25%,
-      var(--color-primary) 100%
+      var(--color-primary) 90%,
+      var(--color-primary-800) 100%
     );
     background-clip: text;
     -webkit-background-clip: text;
