@@ -4,6 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --font-work-sans: var(--font-work-sans);
   /* ===== CORE COLORS ===== */
 
   /* Primary Pink (#FF2171) with shades */
@@ -317,5 +318,18 @@ body {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+
+  /* searchform */
+  .search-form {
+    @apply text-black max-w-2xl w-full min-h-[80px] bg-primary-100 border-[5px] border-black rounded-[80px] text-[24px] mt-2 px-5 flex flex-row items-center gap-6;
+  }
+
+  .search-input {
+    @apply flex-1 font-semibold text-background placeholder:text-slate-700 w-full h-auto outline-none;
+  }
+
+  .search-btn {
+    @apply !size-[50px] rounded-full bg-black flex justify-center items-center;
   }
 }

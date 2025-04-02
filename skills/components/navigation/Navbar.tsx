@@ -390,7 +390,6 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { data: session } = useSession();
-
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
 
   useEffect(() => {
@@ -435,10 +434,11 @@ const Navbar = () => {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="rounded-full"
+                  // className="rounded-full p-1  bg-primary hover:bg-primary-700 cursor-pointer border border-primary-300 dark:border-primary-400 focus:outline-none focus:ring focus:ring-primary-200 "
+                  className=" rounded-full p-1 bg-primary-200 dark:bg-primary-100 hover:bg-primary-200 dark:hover:bg-primary-200 cursor-pointer border border-primary-300 dark:border-primary-400 focus:outline-none focus:ring focus:ring-primary-200 "
                   type="submit"
                 >
-                  <LogOut className="h-5 w-5" />
+                  <LogOut className="h-5 w-5  text-primary-800" />
                   <span className="sr-only">Logout</span>
                 </Button>
               </form>
