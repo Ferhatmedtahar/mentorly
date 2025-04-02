@@ -95,12 +95,12 @@ const FeaturedProjects = () => {
   return (
     <section className="py-12 md:py-16 bg-background max-container padding-container">
       <div className="flex justify-between items-center mb-8 ">
-        <h2 className="text-2xl md:text-3xl text-30-bold text-black">
+        <h2 className="text-2xl md:text-3xl text-36-bold dark:text-white text-pink-700 ">
           Featured Projects
         </h2>
         <Button
           variant="outline"
-          className="border-brand-pink text-brand-pink hover:bg-primary-500 hover:border-primary-800 hover:text-white transition-colors duration-200 ease-in-out"
+          className="border-primary-600 text-brand-pink hover:bg-primary-500 hover:border-primary-800 hover:text-white transition-colors duration-200 ease-in-out"
           asChild
         >
           <Link href="/projects">

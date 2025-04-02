@@ -51,7 +51,7 @@ const ProjectCard = ({
       </div>
 
       <Link href={`/projects/${slug}`} className="block group">
-        <h3 className="text-26-semibold  transition-colors line-clamp-2">
+        <h3 className="text-26-semibold text-primary-700 dark:text-white transition-colors line-clamp-2">
           {title}
         </h3>
       </Link>

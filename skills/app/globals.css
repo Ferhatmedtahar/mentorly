@@ -73,7 +73,7 @@
 
   --shadow-100: 2px 2px 0px 0px rgb(0, 0, 0);
   --shadow-200: 2px 2px 0px 2px rgb(0, 0, 0);
-  --shadow-300: 2px 2px 0px 2px rgb(238, 43, 105);
+  --shadow-300: 2px 2px 0px 2px rgb(238, 43, 108);
 
   /* Border radius */
   --radius: 0.625rem;
@@ -120,7 +120,7 @@
 }
 :root {
   --radius: 0.625rem;
-  --color-foreground: oklch(0.129 0.042 264.695);
+  --color-foreground: oklch(0.1 0.042 264.695);
   --color-background: oklch(0.984 0.003 247.858);
   --color-card: oklch(1 0 0);
   --color-card-foreground: oklch(0.129 0.042 264.695);
@@ -156,7 +156,7 @@
 }
 
 .dark {
-  --color-background: oklch(0.129 0.042 264.695);
+  --color-background: oklch(0.1 0.042 264.695);
   --color-foreground: oklch(0.984 0.003 247.858);
   --color-card: oklch(0.208 0.042 265.755);
   --color-card-foreground: oklch(0.984 0.003 247.858);
@@ -190,8 +190,8 @@
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--color-background);
+  color: var(--color-foreground);
   font-family: var(--font-work-sans), Helvetica, sans-serif;
 }
 
@@ -239,11 +239,11 @@ body {
   }
 
   .text-20-medium {
-    @apply font-medium text-[20px] text-black;
+    @apply font-medium text-[20px];
   }
 
   .text-16-medium {
-    @apply font-medium text-[16px] text-black;
+    @apply font-medium text-[16px];
   }
 
   .text-14-normal {
@@ -259,7 +259,7 @@ body {
   }
 
   .startup-card {
-    @apply bg-white border-[2px] border-black py-6 px-5 rounded-[22px] shadow-200 hover:border-primary-500 transition-all duration-500 hover:shadow-300 hover:bg-primary-50;
+    @apply bg-white dark:bg-background border-[2px] border-black dark:border-primary-800 py-6 px-5 rounded-[22px] shadow-200 hover:border-primary-500 dark:hover:border-primary-700 transition-all duration-300 hover:shadow-300 hover:bg-primary-50;
   }
   .section-container {
     @apply px-6 py-10 max-w-7xl mx-auto;
@@ -268,8 +268,8 @@ body {
   .pattern {
     background-image: repeating-linear-gradient(
       to right,
-      rgba(251, 232, 67, 0.4) 0px,
-      /* Yellow line */ rgba(251, 232, 67, 0.5) 2px,
+      rgba(43, 105, 238, 0.4) 0px,
+      /* Yellow line */ rgba(43, 105, 238, 0.3) 2px,
       /* Line width */ transparent 2px,
       /* Transparent gap start */ transparent 36px /* Transparent gap size */
     );
@@ -301,5 +301,16 @@ body {
     left: -10%;
     background: radial-gradient(circle, #ff1f3f22 10%, transparent 60%);
     z-index: -1;
+  }
+  .gradient {
+    background: linear-gradient(
+      135deg,
+      var(--color-secondary-700) 0%,
+      var(--color-secondary-400) 25%,
+      var(--color-primary) 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }
