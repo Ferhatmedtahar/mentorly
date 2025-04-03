@@ -52,7 +52,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/projects"
-                  className="text-gray-700 dark:text-gray-500 hover:text-primary-500 transition-colors duration-200 ease-in-out"
+                  className="text-gray-700 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-300 transition-colors duration-200 ease-in-out"
                 >
                   Browse Projects
                 </Link>
@@ -60,7 +60,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/mentors"
-                  className="text-gray-700 dark:text-gray-500 hover:text-primary-500 transition-colors duration-200 ease-in-out"
+                  className="text-gray-700 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-300 transition-colors duration-200 ease-in-out"
                 >
                   Find Mentors
                 </Link>
@@ -68,7 +68,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/create-project"
-                  className="text-gray-700 dark:text-gray-500 hover:text-primary-500 transition-colors duration-200 ease-in-out"
+                  className="text-gray-700 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-300 transition-colors duration-200 ease-in-out"
                 >
                   Start a Project
                 </Link>
@@ -76,7 +76,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/success-stories"
-                  className="text-gray-700 dark:text-gray-500 hover:text-primary-500 transition-colors duration-200 ease-in-out"
+                  className="text-gray-700 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-300 transition-colors duration-200 ease-in-out"
                 >
                   Success Stories
                 </Link>
@@ -90,7 +90,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/about"
-                  className="text-gray-700 dark:text-gray-500 hover:text-primary-500 transition-colors duration-200 ease-in-out"
+                  className="text-gray-700 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-300 transition-colors duration-200 ease-in-out"
                 >
                   About Us
                 </Link>
@@ -98,7 +98,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/blog"
-                  className="text-gray-700 dark:text-gray-500 hover:text-primary-500 transition-colors duration-200 ease-in-out"
+                  className="text-gray-700 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-300 transition-colors duration-200 ease-in-out"
                 >
                   Blog
                 </Link>
@@ -106,7 +106,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/careers"
-                  className="text-gray-700 dark:text-gray-500 hover:text-primary-500 transition-colors duration-200 ease-in-out"
+                  className="text-gray-700 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-300 transition-colors duration-200 ease-in-out"
                 >
                   Careers
                 </Link>
@@ -114,7 +114,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/contact"
-                  className="text-gray-700 dark:text-gray-500 hover:text-primary-500 transition-colors duration-200 ease-in-out"
+                  className="text-gray-700 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-300 transition-colors duration-200 ease-in-out"
                 >
                   Contact
                 </Link>
@@ -128,7 +128,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/terms"
-                  className="text-gray-700 dark:text-gray-500 hover:text-primary-500 transition-colors duration-200 ease-in-out"
+                  className="text-gray-700 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-300 transition-colors duration-200 ease-in-out"
                 >
                   Terms of Service
                 </Link>
@@ -136,7 +136,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/privacy"
-                  className="text-gray-700 dark:text-gray-500 hover:text-primary-500 transition-colors duration-200 ease-in-out"
+                  className="text-gray-700 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-300 transition-colors duration-200 ease-in-out"
                 >
                   Privacy Policy
                 </Link>
@@ -144,7 +144,7 @@ const Footer = () => {
               <li>
                 <Link
                   href="/cookies"
-                  className="text-gray-700 dark:text-gray-500 hover:text-primary-500 transition-colors duration-200 ease-in-out"
+                  className="text-gray-700 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-300 transition-colors duration-200 ease-in-out"
                 >
                   Cookie Policy
                 </Link>
