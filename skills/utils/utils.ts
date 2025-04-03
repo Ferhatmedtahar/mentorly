@@ -14,3 +14,20 @@ export function encodedRedirect(
 ) {
   return redirect(`${path}?${type}=${encodeURIComponent(message)}`);
 }
+export function formatDate(dateString: string) {
+  // Remove fractional seconds and timezone (+00:00) to ensure compatibility
+  const cleanedDate = dateString.split(".")[0] + "Z";
+
+  const date = new Date(cleanedDate);
+
+  if (isNaN(date.getTime())) {
+    console.error("Invalid date provided:", dateString);
+    return "Invalid Date";
+  }
+
+  return date.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+  });
+}

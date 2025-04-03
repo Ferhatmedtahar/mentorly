@@ -18,6 +18,7 @@
   --color-primary-700: hsl(338, 100%, 45%);
   --color-primary-800: hsl(338, 100%, 37%);
   --color-primary-900: hsl(338, 100%, 29%);
+  --color-primary-950: hsl(338, 100%, 23%);
 
   /* Secondary Blue (#2b69ee) with shades */
   --color-secondary-50: hsl(220, 85%, 96%);
@@ -331,5 +332,23 @@ body {
 
   .search-btn {
     @apply !size-[50px] rounded-full bg-black flex justify-center items-center;
+  }
+
+  .tag {
+    @apply bg-secondary-500 text-white px-6 py-3 font-work-sans font-bold rounded-sm uppercase relative;
+  }
+  .tag-tri {
+    @apply before:content-[''] before:absolute  before:top-2 before:left-2 before:border-t-[10px] before:border-t-black before:border-r-[10px] before:border-r-transparent after:content-[''] after:absolute after:bottom-2 after:right-2 after:border-b-[10px] after:border-b-black after:border-l-[10px] after:border-l-transparent;
+  }
+  /* view */
+  .view-container {
+    @apply flex justify-end items-center mt-5 fixed bottom-3 right-3;
+  }
+
+  .view-text {
+    @apply font-medium text-[16px] bg-primary-100 dark:bg-primary-500 px-4 py-2 rounded-lg capitalize;
+  }
+  .view-skeleton {
+    @apply bg-zinc-400 h-10 w-24 rounded-lg fixed bottom-3 right-3;
   }
 }

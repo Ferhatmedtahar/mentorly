@@ -1,4 +1,6 @@
-import ProjectCard from "@/components/general/ProjectCard";
+import ProjectCard, {
+  ProjectCardProps,
+} from "@/components/general/ProjectCard";
 import { Button } from "@/components/ui/button";
 import { Project } from "@/types/Project";
 import { createClient } from "@/utils/supabase/server";
@@ -39,7 +41,6 @@ const FeaturedProjects = async ({ query }: { query: string | undefined }) => {
     console.log("Projects with users:", projects);
   }
 
-  console.log("projects", projects);
   return (
     <section className="py-12 md:py-16 bg-background max-container padding-container">
       <div className="flex justify-between items-center mb-8 ">
@@ -61,7 +62,7 @@ const FeaturedProjects = async ({ query }: { query: string | undefined }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {projects.length > 0 ? (
           projects.map((project) => (
-            <ProjectCard key={project.id} {...project} />
+            <ProjectCard key={project.id} {...(project as ProjectCardProps)} />
           ))
         ) : (
           <NoResults />

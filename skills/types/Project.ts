@@ -7,12 +7,13 @@ export type Project = {
   author_id: string;
   profiles: Author;
   skills: string[];
-  collaborationType: CollaborationType;
+  collaboration_type: CollaborationType;
   contact_info: ContactInfo;
   likes: number;
   views: number;
   slug: string;
-  created_at: string | Date; // or Date if you prefer to use Date objects
+  details: string;
+  created_at: string; // or Date if you prefer to use Date objects
 };
 
 enum CollaborationType {

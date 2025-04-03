@@ -4,32 +4,44 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { Author } from "@/types/Author";
+import { createClient } from "@/utils/supabase/server";
 import { Heart } from "lucide-react";
 import Image from "next/image";
 
-interface ProjectCardProps {
+export interface ProjectCardProps {
   id?: string;
   title: string;
   description: string;
   profiles: Author;
   skills: string[];
-  collaboration_type: string;
+  collaboration_type?: string;
   slug: string;
   className?: string;
-  likes: number;
 }
 
-const ProjectCard = ({
+const ProjectCard = async ({
+  id,
   title,
   description,
   profiles,
   skills,
-  likes,
   collaboration_type: collaborationType,
   slug,
   className,
 }: ProjectCardProps) => {
-  console.log(collaborationType);
+  const supabase = await createClient();
+  const { data: likes, error } = await supabase
+    .from("likes")
+    .select("id")
+    .eq("project_id", id);
+
+  if (error) {
+    throw new Error(error.message);
+  }
+
+  // Total likes count
+  const likeCount = likes?.length;
+
   return (
     <div className={cn("startup-card group", className)}>
       <div className="flex justify-between items-start mb-3">
@@ -54,10 +66,10 @@ const ProjectCard = ({
           </Avatar>
           <span className="text-16-medium">{profiles.name}</span>
         </Link>
-        <button className="text-muted-foreground hover:text-primary transition-colors   cursor-pointer flexCenter flex-col ">
+        <div className="text-muted-foreground hover:text-primary transition-colors   cursor-default flexCenter flex-col ">
           <Heart size={20} />
-          <span className="text-sm">{likes}</span>
-        </button>
+          <span className="text-sm">{likeCount}</span>
+        </div>
       </div>
 
       <Link href={`/projects/${slug}`} className="block group">

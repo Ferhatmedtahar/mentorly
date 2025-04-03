@@ -9,7 +9,8 @@ const Footer = () => {
         <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4">
           {/* Company info */}
           <div className="col-span-2 sm:col-span-2 md:col-span-1 space-y-3">
-            <h4 className="text-lg font-bold">{"<Mentorly>"}</h4>
+            <h4 className="text-lg font-bold gradient">{"<Mentorly>"}</h4>
+
             <p className="text-sm text-muted-foreground">
               Connect with mentors and collaborators to bring your projects to
               life.
@@ -154,7 +155,7 @@ const Footer = () => {
         </div>
 
         {/* Copyright */}
-        <div className="mt-8 pt-6 border-t border-border/40 text-center text-sm text-gray-400">
+        <div className="mt-8 pt-6 border-t border-border/40 text-center text-sm text-gray-700 dark:text-gray-500">
           <p>© {new Date().getFullYear()} Mentorly. All rights reserved.</p>
         </div>
       </div>
