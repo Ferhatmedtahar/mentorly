@@ -3,50 +3,60 @@ import Link from "next/link";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
+import { Author } from "@/types/Author";
 import { Heart } from "lucide-react";
+import Image from "next/image";
 
 interface ProjectCardProps {
-  id: string;
+  id?: string;
   title: string;
   description: string;
-  author: {
-    name: string;
-    avatar?: string;
-    username: string;
-  };
+  profiles: Author;
   skills: string[];
-  collaborationType: string;
+  collaboration_type: string;
   slug: string;
   className?: string;
+  likes: number;
 }
 
 const ProjectCard = ({
-  id,
   title,
   description,
-  author,
+  profiles,
   skills,
-  collaborationType,
+  likes,
+  collaboration_type: collaborationType,
   slug,
   className,
 }: ProjectCardProps) => {
-  console.log(id);
+  console.log(collaborationType);
   return (
     <div className={cn("startup-card group", className)}>
       <div className="flex justify-between items-start mb-3">
         <Link
-          href={`/profile/${author.username}`}
+          href={`/profile/${profiles.username}`}
           className="flex items-center gap-2"
         >
           <Avatar className="h-8 w-8">
-            <AvatarFallback className="bg-primary text-white">
-              {author.name[0]}
-            </AvatarFallback>
+            {profiles.avatar_url ? (
+              <Image
+                height={40}
+                width={40}
+                src={profiles.avatar_url}
+                alt={profiles.name}
+                className="w-full h-full object-cover"
+              />
+            ) : (
+              <AvatarFallback className="bg-primary text-white">
+                <span>{profiles.name[0]}</span>
+              </AvatarFallback>
+            )}
           </Avatar>
-          <span className="text-16-medium">{author.name}</span>
+          <span className="text-16-medium">{profiles.name}</span>
         </Link>
-        <button className="text-muted-foreground hover:text-primary transition-colors  cursor-pointer">
-          <Heart size={18} />
+        <button className="text-muted-foreground hover:text-primary transition-colors   cursor-pointer flexCenter flex-col ">
+          <Heart size={20} />
+          <span className="text-sm">{likes}</span>
         </button>
       </div>
 
@@ -55,10 +65,12 @@ const ProjectCard = ({
           {title}
         </h3>
       </Link>
-      <p className="startup-card-desc my-2">{description}</p>
+      <p className="startup-card-desc my-2 text-slate-800 dark:text-slate-100">
+        {description}
+      </p>
 
       <div className="flex flex-wrap gap-2 mb-4">
-        {skills.slice(0, 3).map((skill) => (
+        {skills.slice(0, 3).map((skill: string) => (
           <Badge key={skill} variant="secondary" className="text-xs">
             {skill}
           </Badge>

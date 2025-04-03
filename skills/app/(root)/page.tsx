@@ -11,7 +11,7 @@ export default async function Home({
   return (
     <>
       <Hero query={query} />
-      <FeaturedProjects />
+      <FeaturedProjects query={query} />
       <Explaination />
     </>
   );
