@@ -34,23 +34,29 @@ export default function ContactInputGroup({
     <div>
       <Label className="project-form-label">contact information</Label>
       <div className="space-y-4 mt-3">
-        {Object.entries(contactInfo).map(([key, value]) => {
-          const Icon = ICONS[key as keyof typeof ICONS];
-          return (
-            <div key={key} className="flex items-center gap-2">
-              <div className="flex-shrink-0 mt-1.5">
-                {Icon && <Icon className="h-5 w-5 text-muted-foreground" />}
+        {(Object.entries(contactInfo) as [keyof typeof ICONS, string][]).map(
+          ([key, value]) => {
+            const Icon = ICONS[key];
+
+            return (
+              <div key={key} className="flex items-center gap-2">
+                <div className="flex-shrink-0 mt-1.5">
+                  {Icon && <Icon className="h-5 w-5 text-muted-foreground" />}
+                </div>
+                <Input
+                  name={key}
+                  id={key}
+                  autoComplete={key === "email" ? "email" : "off"}
+                  type={key === "email" ? "email" : "url"}
+                  placeholder={PLACEHOLDERS[key]}
+                  className="project-form-input"
+                  value={value}
+                  onChange={(e) => onChange?.(key, e.target.value)} // ✅ no more error
+                />
               </div>
-              <Input
-                type={key === "email" ? "email" : "url"}
-                placeholder={PLACEHOLDERS[key as keyof typeof PLACEHOLDERS]}
-                className="project-form-input"
-                value={value}
-                onChange={(e) => onChange(key, e.target.value)}
-              />
-            </div>
-          );
-        })}
+            );
+          }
+        )}
       </div>
       {errors?.contactInfo && (
         <p className="project-form-error">{errors.contactInfo[0]}</p>
