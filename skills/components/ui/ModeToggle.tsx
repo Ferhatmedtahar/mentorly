@@ -28,7 +28,7 @@ export function ModeToggle() {
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="end"
-        className="bg-primary-100 dark:bg-primary-200 "
+        className="bg-primary-50 dark:bg-primary-100 "
       >
         <DropdownMenuItem
           onClick={() => setTheme("light")}
