@@ -1,7 +1,6 @@
 import NextAuth from "next-auth";
 import GitHub from "next-auth/providers/github";
 import { createClient } from "./utils/supabase/server";
-
 export const { handlers, auth, signIn, signOut } = NextAuth({
   providers: [GitHub],
   callbacks: {
@@ -48,28 +47,39 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         return false;
       }
     },
-    async jwt({ token, account, profile }) {
-      if (account && profile) {
-        const supabase = await createClient();
-        // Query the user from the Supabase database
-        const { data: userData, error } = await supabase
-          .from("profiles")
-          .select("id")
-          .eq("id", profile?.id)
-          .maybeSingle();
-
-        if (error) {
-          console.error("Error fetching user for JWT callback:", error);
-        } else if (userData) {
-          token.id = userData.id;
-        }
+    async jwt({ token, user }) {
+      // Only set token.id during initial sign-in
+      if (user) {
+        token.id = user.id; // ✅ Supabase UUID
       }
       return token;
     },
-
     async session({ session, token }) {
-      Object.assign(session, { id: token?.id });
+      Object.assign(session.user, { id: token?.id });
       return session;
     },
   },
 });
+// async session({ session, token }) {
+//   Object.assign(session, { id: token?.id });
+//   return session;
+// },
+
+// async jwt({ token, account, profile }) {
+//   if (account && profile) {
+//     const supabase = await createClient();
+//     // Query the user from the Supabase database
+//     const { data: userData, error } = await supabase
+//       .from("profiles")
+//       .select("id")
+//       .eq("github_id", profile?.id)
+//       .maybeSingle();
+
+//     if (error) {
+//       console.error("Error fetching user for JWT callback:", error);
+//     } else if (userData) {
+//       token.id = userData.id;
+//     }
+//   }
+//   return token;
+// },

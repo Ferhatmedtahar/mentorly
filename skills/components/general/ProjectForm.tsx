@@ -26,10 +26,11 @@ import { cn } from "@/lib/utils";
 import { projectSchema } from "@/lib/validation";
 import MDEditor from "@uiw/react-md-editor";
 import { Check, ChevronsUpDown, X } from "lucide-react";
+import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
 import { useActionState, useState } from "react";
 import { toast } from "sonner";
-import { z } from "zod";
+import * as z from "zod";
 import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
@@ -44,6 +45,7 @@ const groupedSkills = skillsOptions.reduce((acc, skill) => {
 }, {} as Record<string, typeof skillsOptions>);
 
 export default function ProjectForm() {
+  const { theme } = useTheme();
   const router = useRouter();
   const [details, setDetails] = useState<string>("");
   const [collaborationType, setCollaborationType] = useState<string>("");
@@ -86,7 +88,6 @@ export default function ProjectForm() {
         contactInfo,
       };
 
-      console.log("Form Values", fromValues);
       // validation check using zod function and the validation from the lib folder
 
       await projectSchema.parseAsync(fromValues);
@@ -100,26 +101,34 @@ export default function ProjectForm() {
       const result = await createProject(prevState, formData);
 
       console.log("Result", result);
-      if (result.STATUS == "SUCCESS") {
+      if (result.status == "SUCCESS") {
         toast.success("Project Created Successfully");
-        router.push(`/projects/${result.slug}`);
+        router.push(`/projects/${result?.slug}`);
       }
     } catch (error) {
       if (error instanceof z.ZodError) {
         const fieldErrors = error.flatten().fieldErrors;
         setErrors(fieldErrors as unknown as Record<string, string[]>);
-        return { ...prevState, state: "ERROR", error: "Validation Error" };
+        return {
+          ...prevState,
+          state: "ERROR",
+          error: "Validation Error",
+          inputs: {
+            title: formData.get("title") as string,
+            description: formData.get("description") as string,
+          },
+        };
       }
       return {
         ...prevState,
         state: "ERROR",
         error: "An unexpected error occurred",
+        inputs: {
+          title: formData.get("title") as string,
+          description: formData.get("description") as string,
+        },
       };
     }
-    return {
-      state: "SUBMITTED",
-      error: "",
-    };
   }
 
   const removeSkill = (skill: string) => {
@@ -127,7 +136,7 @@ export default function ProjectForm() {
   };
 
   return (
-    <form className="project-form" action={formAction}>
+    <form className="project-form flex flex-col gap-1" action={formAction}>
       <div>
         <Label className="project-form-label">title</Label>
         <input
@@ -136,6 +145,7 @@ export default function ProjectForm() {
           className="project-form-input"
           placeholder="Title of your Project"
           required
+          defaultValue={state?.inputs?.title}
         />
         {errors.title && (
           <p className="project-form-error capitalize">{errors.title[0]}</p>
@@ -149,6 +159,7 @@ export default function ProjectForm() {
           className="project-form-textarea"
           placeholder="Description of your Project"
           required
+          defaultValue={state?.inputs?.description}
         />
         {errors.description && (
           <p className="project-form-error">{errors.description[0]}</p>
@@ -188,11 +199,11 @@ export default function ProjectForm() {
                 className="project-form-input w-full justify-between "
               >
                 {selectedSkills.length > 0 ? (
-                  <span className="text-slate-500 dark:text-slate-200">
+                  <span className="text-slate-500 dark:text-slate-100">
                     {selectedSkills.length} selected
                   </span>
                 ) : (
-                  <span className="text-slate-500 dark:text-slate-200">
+                  <span className="text-slate-500 dark:text-slate-500">
                     Select skills
                   </span>
                 )}
@@ -280,8 +291,9 @@ export default function ProjectForm() {
         onChange={handleContactInfoChange}
         errors={errors}
       />
-      <div>
-        <Label className="project-form-label">details</Label>
+
+      <div data-color-mode={theme === "dark" ? "dark" : "light"}>
+        <Label className="project-form-label">Details</Label>
         <MDEditor
           id="details"
           preview="edit"
@@ -301,7 +313,7 @@ export default function ProjectForm() {
         )}
       </div>
 
-      <Button type="submit" className="project-form-button">
+      <Button type="submit" className="project-form-button" size={"lg"}>
         {isPending ? "Submitting..." : "Submit"}
       </Button>
     </form>

@@ -44,7 +44,8 @@ const Navbar = () => {
             <>
               <Button
                 variant="default"
-                className="bg-primary hover:bg-primary/90 gap-1 items-center"
+                size="sm"
+                className=" text-primary-800 bg-primary-200 dark:bg-primary-100 hover:bg-primary-300/90 dark:hover:bg-primary-200 cursor-pointer border border-primary-300 dark:border-primary-400 focus:outline-none focus:ring focus:ring-primary-200"
                 asChild
               >
                 <Link href="/projects/create-project">

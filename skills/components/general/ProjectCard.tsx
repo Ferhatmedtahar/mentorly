@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { Author } from "@/types/Author";
 import { createClient } from "@/utils/supabase/server";
-import { Heart } from "lucide-react";
+import { Eye, Heart } from "lucide-react";
 import Image from "next/image";
 
 export interface ProjectCardProps {
@@ -17,6 +17,7 @@ export interface ProjectCardProps {
   collaboration_type?: string;
   slug: string;
   className?: string;
+  views?: number;
 }
 
 const ProjectCard = async ({
@@ -28,6 +29,7 @@ const ProjectCard = async ({
   collaboration_type: collaborationType,
   slug,
   className,
+  views,
 }: ProjectCardProps) => {
   const supabase = await createClient();
   const { data: likes, error } = await supabase
@@ -41,34 +43,40 @@ const ProjectCard = async ({
 
   // Total likes count
   const likeCount = likes?.length;
-
+  console.log(views, "views");
   return (
     <div className={cn("startup-card group", className)}>
       <div className="flex justify-between items-start mb-3">
         <Link
-          href={`/profile/${profiles.username}`}
+          href={`/profile/${profiles?.username}`}
           className="flex items-center gap-2"
         >
           <Avatar className="h-8 w-8">
-            {profiles.avatar_url ? (
+            {profiles?.avatar_url ? (
               <Image
                 height={40}
                 width={40}
-                src={profiles.avatar_url}
-                alt={profiles.name}
+                src={profiles?.avatar_url}
+                alt={profiles?.name}
                 className="w-full h-full object-cover"
               />
             ) : (
               <AvatarFallback className="bg-primary text-white">
-                <span>{profiles.name[0]}</span>
+                <span>{profiles?.name[0]}</span>
               </AvatarFallback>
             )}
           </Avatar>
-          <span className="text-16-medium">{profiles.name}</span>
+          <span className="text-16-medium">{profiles?.name}</span>
         </Link>
-        <div className="text-muted-foreground hover:text-primary transition-colors   cursor-default flexCenter flex-col ">
-          <Heart size={20} />
-          <span className="text-sm">{likeCount}</span>
+        <div className="flex gap-2 items-center">
+          <div className="text-muted-foreground hover:text-primary transition-colors   cursor-default flexCenter flex-col ">
+            <Heart size={20} />
+            <span className="text-sm">{likeCount}</span>
+          </div>
+          <div className="text-muted-foreground hover:text-primary transition-colors   cursor-default flexCenter flex-col ">
+            <Eye size={21} />
+            <span className="text-sm">{views}</span>
+          </div>
         </div>
       </div>
 
@@ -77,7 +85,7 @@ const ProjectCard = async ({
           {title}
         </h3>
       </Link>
-      <p className="startup-card-desc my-2 text-slate-800 dark:text-slate-100">
+      <p className="font-normal text-[16px] line-clamp-2 my-2 text-slate-800 dark:text-slate-100 ">
         {description}
       </p>
 

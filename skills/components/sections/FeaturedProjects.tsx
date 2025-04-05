@@ -2,7 +2,6 @@ import ProjectCard, {
   ProjectCardProps,
 } from "@/components/general/ProjectCard";
 import { Button } from "@/components/ui/button";
-import { Project } from "@/types/Project";
 import { createClient } from "@/utils/supabase/server";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -10,10 +9,9 @@ import NoResults from "../general/NoResults";
 
 const FeaturedProjects = async ({ query }: { query: string | undefined }) => {
   const supabase = await createClient();
-  let projects: Project[] = []; // Explicitly defining 'projects' as possibly null
-  let error: Error;
+  let projects: any[] = [];
+  let error;
 
-  // If a query is provided, fetch projects that match the query
   if (query) {
     const { data, error: queryError } = await supabase
       .from("projects")
@@ -21,18 +19,18 @@ const FeaturedProjects = async ({ query }: { query: string | undefined }) => {
       .ilike("title", `%${query}%`) // Case-insensitive match on title
       .order("created_at", { ascending: false });
 
-    projects = data;
-    error = queryError;
+    projects = data ?? [];
+    error = queryError ?? null;
   } else {
     // If no query, fetch the 6 most recent projects
     const { data, error: defaultError } = await supabase
       .from("projects")
-      .select("*, profiles(*)") // Select all fields from projects and profiles
+      .select("*, profiles(*)")
       .order("created_at", { ascending: false })
-      .limit(6); // Limit to 6 projects
+      .limit(6);
 
-    projects = data;
-    error = defaultError;
+    projects = data ?? [];
+    error = defaultError ?? null;
   }
 
   if (error) {
