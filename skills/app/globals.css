@@ -217,31 +217,31 @@ body {
     @apply !border-[5px] py-4 border-primary-700  relative shadow-primary-100  font-medium hover:shadow-none transition-all duration-500;
   }
   .text-36-extrabold {
-    @apply text-[36px] font-extrabold text-white;
+    @apply text-[36px] font-extrabold dark:text-primary text-black;
   }
 
   .text-36-bold {
-    @apply text-[36px] font-bold;
+    @apply text-[36px] font-bold  dark:text-primary text-black;
   }
 
   .text-36-semibold {
-    @apply font-semibold text-[36px] text-black;
+    @apply font-semibold text-[36px] dark:text-primary text-black;
   }
 
   .text-30-bold {
-    @apply text-[30px] font-bold;
+    @apply text-[30px] font-bold  dark:text-primary text-black;
   }
 
   .text-30-semibold {
-    @apply font-semibold text-[30px] text-black;
+    @apply font-semibold text-[30px]  dark:text-primary text-black;
   }
 
   .text-26-semibold {
-    @apply font-semibold text-[26px] text-black;
+    @apply font-semibold text-[26px];
   }
 
   .text-24-black {
-    @apply text-[24px] font-black text-black;
+    @apply text-[24px] font-black;
   }
 
   .text-20-medium {

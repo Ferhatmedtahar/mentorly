@@ -1,4 +1,7 @@
 import Likes from "@/components/general/Likes";
+import ProjectCard, {
+  ProjectCardProps,
+} from "@/components/general/ProjectCard";
 import View from "@/components/general/View";
 import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -32,6 +35,14 @@ export default async function page({
   if (error) {
     return notFound();
   }
+
+  const { data: editorPosts } = await supabase
+    .from("projects")
+    .select("*, profiles(*)")
+    .eq("collaboration_type", project.collaboration_type)
+    .neq("slug", slug)
+    .limit(3)
+    .order("created_at", { ascending: false });
 
   const parsedContent = md.render(project?.details || "");
   console.log(project);
@@ -102,20 +113,23 @@ export default async function page({
           )}
         </div>
 
-        {/* <hr className="divider" /> */}
+        <hr className="divider my-10" />
 
         {/**EDITOR SELECTED STARTUPS */}
-        {/* {editorPosts?.length > 0 && (
-          <div className="max-w-4xl mx-auto">
-            <p className="text-30-semibold">Editor Picks</p>
+        {editorPosts && editorPosts?.length > 0 ? (
+          <div className="max-w-4xl mx-auto mt-6">
+            <p className="text-30-semibold">You might also like</p>
 
-            <ul className="mt-7 card_grid-sm">
-              {editorPosts.map((post: StartupCardType, i: number) => (
-                <StartupCard key={i} post={post} />
+            <ul className="mt-7 grid sm:grid-cols-2 gap-5">
+              {editorPosts.map((project: ProjectCardProps) => (
+                <ProjectCard
+                  key={project.id}
+                  {...(project as ProjectCardProps)}
+                />
               ))}
             </ul>
           </div>
-        )} */}
+        ) : null}
 
         <Suspense fallback={<Skeleton className="view-skeleton" />}>
           <View slug={slug} />
