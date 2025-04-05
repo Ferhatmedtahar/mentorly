@@ -14,6 +14,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import { ProjectsLoading } from "../loading";
 export const experimental_ppr = true;
 
 const md = markdownit();
@@ -45,7 +46,7 @@ export default async function page({
     .order("created_at", { ascending: false });
 
   const parsedContent = md.render(project?.details || "");
-  console.log(project);
+
   return (
     <>
       <section className="bg-primary pattern py-10 text-center flex items-center justify-center flex-col ">
@@ -113,23 +114,27 @@ export default async function page({
           )}
         </div>
 
-        <hr className="divider my-10" />
+        {editorPosts && editorPosts?.length > 0 && (
+          <hr className="divider my-10" />
+        )}
 
         {/**EDITOR SELECTED STARTUPS */}
-        {editorPosts && editorPosts?.length > 0 ? (
-          <div className="max-w-4xl mx-auto mt-6">
-            <p className="text-30-semibold">You might also like</p>
+        <Suspense fallback={<ProjectsLoading />}>
+          {editorPosts && editorPosts?.length > 0 ? (
+            <div className="max-w-4xl mx-auto mt-6">
+              <p className="text-30-semibold">You might also like</p>
 
-            <ul className="mt-7 grid sm:grid-cols-2 gap-5">
-              {editorPosts.map((project: ProjectCardProps) => (
-                <ProjectCard
-                  key={project.id}
-                  {...(project as ProjectCardProps)}
-                />
-              ))}
-            </ul>
-          </div>
-        ) : null}
+              <ul className="mt-7 grid sm:grid-cols-2 gap-5">
+                {editorPosts.map((project: ProjectCardProps) => (
+                  <ProjectCard
+                    key={project.id}
+                    {...(project as ProjectCardProps)}
+                  />
+                ))}
+              </ul>
+            </div>
+          ) : null}
+        </Suspense>
 
         <Suspense fallback={<Skeleton className="view-skeleton" />}>
           <View slug={slug} />

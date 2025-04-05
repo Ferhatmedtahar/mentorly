@@ -1,3 +1,4 @@
+import { ProjectsLoading } from "@/app/(root)/projects/loading";
 import ProjectCard, {
   ProjectCardProps,
 } from "@/components/general/ProjectCard";
@@ -5,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { createClient } from "@/utils/supabase/server";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { Suspense } from "react";
 import NoResults from "../general/NoResults";
 
 const FeaturedProjects = async ({ query }: { query: string | undefined }) => {
@@ -58,13 +60,18 @@ const FeaturedProjects = async ({ query }: { query: string | undefined }) => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.length > 0 ? (
-          projects.map((project) => (
-            <ProjectCard key={project.id} {...(project as ProjectCardProps)} />
-          ))
-        ) : (
-          <NoResults />
-        )}
+        <Suspense fallback={<ProjectsLoading />}>
+          {projects.length > 0 ? (
+            projects.map((project) => (
+              <ProjectCard
+                key={project.id}
+                {...(project as ProjectCardProps)}
+              />
+            ))
+          ) : (
+            <NoResults />
+          )}
+        </Suspense>
       </div>
     </section>
   );

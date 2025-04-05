@@ -43,7 +43,7 @@ const ProjectCard = async ({
 
   // Total likes count
   const likeCount = likes?.length;
-  console.log(views, "views");
+
   return (
     <div className={cn("startup-card group", className)}>
       <div className="flex justify-between items-start mb-3">
