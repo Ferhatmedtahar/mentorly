@@ -98,7 +98,7 @@ const Navbar = () => {
 
         {/* Mobile menu button */}
         <button
-          className="text-foreground p-2 md:hidden relative z-50 dark:text-white"
+          className="text-foreground p-2 md:hidden relative z-50  dark:text-white"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -124,7 +124,7 @@ const Navbar = () => {
         {/* Mobile menu with animation */}
         {mounted && (
           <div
-            className={`absolute -top-4 left-0 right-0 bg-white/95 z-40 transform transition-transform duration-300 ease-in-out md:hidden ${
+            className={`absolute -top-4 left-0 right-0 dark:bg-primary-100 bg-white/95 z-40 transform transition-transform duration-300 ease-in-out md:hidden ${
               isMenuOpen ? "translate-y-0" : "-translate-y-full"
             }`}
           >
@@ -135,11 +135,11 @@ const Navbar = () => {
                     Explore
                   </Link>
                 </li>
-                <li className="py-2 transition-colors hover:text-primary">
+                {/* <li className="py-2 transition-colors hover:text-primary">
                   <Link href="/mentors" onClick={toggleMenu}>
                     Mentors
                   </Link>
-                </li>
+                </li> */}
                 <li className="py-2 transition-colors hover:text-primary">
                   <Link href="/about" onClick={toggleMenu}>
                     About
@@ -155,7 +155,7 @@ const Navbar = () => {
                         asChild
                         onClick={toggleMenu}
                       >
-                        <Link href="/create-project">
+                        <Link href="/projects/create-project">
                           <PlusCircle className="h-4 w-4 mr-1" />
                           Create Project
                         </Link>
@@ -165,7 +165,7 @@ const Navbar = () => {
                       <form action={logoutUser} onSubmit={toggleMenu}>
                         <Button
                           variant="ghost"
-                          className="w-full"
+                          className="w-full border border-primary"
                           type="submit"
                         >
                           <LogOut className="h-4 w-4 mr-2" />
@@ -175,7 +175,7 @@ const Navbar = () => {
                     </li>
                     <li className="py-2 flex items-center gap-4">
                       <Link
-                        href={`/user/${session.user.id}`}
+                        href={`/users/${session.user.id}`}
                         onClick={toggleMenu}
                       >
                         <Avatar className="h-9 w-9">

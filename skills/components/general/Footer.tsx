@@ -17,7 +17,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <Link
-                href="https://github.com"
+                href="https://github.com/Ferhatmedtahar"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-purple-700 transition-colors duration-200 ease-in-out"
@@ -26,7 +26,7 @@ const Footer = () => {
                 <span className="sr-only">GitHub</span>
               </Link>
               <Link
-                href="https://twitter.com"
+                href="https://x.com/FerhatMedTahar"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-blue-500 transition-colors duration-200 ease-in-out"
@@ -35,7 +35,7 @@ const Footer = () => {
                 <span className="sr-only">Twitter</span>
               </Link>
               <Link
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/ferhatmohamedtahar/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-blue-500 transition-colors duration-200 ease-in-out"
@@ -58,14 +58,7 @@ const Footer = () => {
                   Browse Projects
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/mentors"
-                  className="text-gray-700 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-300 transition-colors duration-200 ease-in-out"
-                >
-                  Find Mentors
-                </Link>
-              </li>
+
               <li>
                 <Link
                   href="/create-project"
@@ -76,7 +69,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/success-stories"
+                  href="/"
                   className="text-gray-700 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-300 transition-colors duration-200 ease-in-out"
                 >
                   Success Stories
@@ -98,7 +91,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/blog"
+                  href="/about"
                   className="text-gray-700 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-300 transition-colors duration-200 ease-in-out"
                 >
                   Blog
@@ -106,7 +99,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/careers"
+                  href="/about"
                   className="text-gray-700 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-300 transition-colors duration-200 ease-in-out"
                 >
                   Careers
@@ -114,7 +107,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/about"
                   className="text-gray-700 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-300 transition-colors duration-200 ease-in-out"
                 >
                   Contact
