@@ -61,7 +61,7 @@ const Footer = () => {
 
               <li>
                 <Link
-                  href="/create-project"
+                  href="/projects/create-project"
                   className="text-gray-700 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-300 transition-colors duration-200 ease-in-out"
                 >
                   Start a Project

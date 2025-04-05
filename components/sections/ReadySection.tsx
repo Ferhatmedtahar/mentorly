@@ -19,7 +19,7 @@ export default function ReadySection() {
             size="lg"
             asChild
           >
-            <Link href="/create-project">
+            <Link href="/projects/create-project">
               Start Your Project
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
