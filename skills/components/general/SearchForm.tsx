@@ -7,7 +7,7 @@ export default function SearchForm({
   readonly query: string | undefined;
 }) {
   return (
-    <Form action={"/"} scroll={false} className="search-form">
+    <Form action={"/projects"} scroll={false} className="search-form">
       <input
         type="text"
         name="query"

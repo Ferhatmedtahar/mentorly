@@ -66,7 +66,7 @@ const Navbar = () => {
                 </Button>
               </form>
 
-              <Link href={`/user/${session.user.id}`}>
+              <Link href={`/users/${session.user.id}`}>
                 <Avatar className="h-9 w-9">
                   <AvatarImage
                     src={session.user.image ?? ""}

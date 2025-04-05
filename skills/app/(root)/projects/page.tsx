@@ -10,27 +10,33 @@ export const dynamic = "force-dynamic";
 export default async function ProjectsPage({
   searchParams,
 }: {
-  searchParams: {
+  readonly searchParams: Promise<{
     page?: string;
     collaborationType?: string;
     skills?: string;
     sort?: "created_at" | "views";
     order?: "asc" | "desc";
-  };
+    query?: string;
+  }>;
 }) {
-  const page = Number(searchParams?.page) ?? 1;
+  const params = await searchParams;
+  const search = params?.query ?? "";
+  const page = Number(params?.page);
   const pageSize = 9;
-  const collaborationType = searchParams?.collaborationType ?? "";
-  const skills = searchParams?.skills ? searchParams.skills.split(",") : [];
-  const sort = searchParams?.sort ?? "created_at";
-  const order = searchParams?.order ?? "desc";
-
+  const collaborationType = params?.collaborationType ?? "";
+  const skills = params?.skills ? params.skills.split(",") : [];
+  const sort = params?.sort ?? "created_at";
+  const order = params?.order ?? "desc";
   const supabase = await createClient();
 
   // Build the query
   let query = supabase
     .from("projects")
     .select("*, profiles(*)", { count: "exact" });
+
+  if (search) {
+    query = query.ilike("title", `%${params?.query ?? ""}%`);
+  }
 
   // Apply filters
   if (collaborationType) {
@@ -54,8 +60,7 @@ export default async function ProjectsPage({
   const { data: projects, count, error } = await query.range(from, to);
 
   if (error) {
-    console.error("Error fetching projects:", error);
-    throw new Error("Error fetching projects");
+    throw new Error("Error fetching projects", { cause: error });
   }
 
   const totalPages = count ? Math.ceil(count / pageSize) : 0;
@@ -71,6 +76,7 @@ export default async function ProjectsPage({
             selectedSkills={skills}
             sortBy={sort}
             sortOrder={order}
+            search={search}
           />
         </Suspense>
 

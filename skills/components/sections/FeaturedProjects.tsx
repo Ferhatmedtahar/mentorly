@@ -28,7 +28,7 @@ const FeaturedProjects = async ({ query }: { query: string | undefined }) => {
     const { data, error: defaultError } = await supabase
       .from("projects")
       .select("*, profiles(*)")
-      .order("created_at", { ascending: false })
+      .order("views", { ascending: false })
       .limit(6);
 
     projects = data ?? [];
@@ -36,9 +36,7 @@ const FeaturedProjects = async ({ query }: { query: string | undefined }) => {
   }
 
   if (error) {
-    console.error("Error fetching projects:", error);
-  } else {
-    console.log("Projects with users:", projects);
+    throw new Error(error.message);
   }
 
   return (

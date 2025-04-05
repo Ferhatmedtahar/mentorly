@@ -54,7 +54,7 @@ export async function createProject(state: any, formData: FormData) {
         author_id: session?.user?.id,
       })
       .select();
-    console.log("result", result);
+
     //handle error
     if (error) {
       console.error("error", error);

@@ -1,5 +1,6 @@
 "use client";
 
+import SearchForm from "@/components/general/SearchForm";
 import { Button } from "@/components/ui/button";
 import {
   Command,
@@ -47,11 +48,13 @@ export default function ProjectsFilter({
   selectedSkills = [],
   sortBy = "created_at",
   sortOrder = "desc",
+  search = "",
 }: {
-  selectedCollaborationType?: string;
-  selectedSkills?: string[];
-  sortBy?: string;
-  sortOrder?: "asc" | "desc";
+  readonly selectedCollaborationType?: string;
+  readonly selectedSkills?: string[];
+  readonly sortBy?: string;
+  readonly sortOrder?: "asc" | "desc";
+  readonly search?: string;
 }) {
   const router = useRouter();
   const pathname = usePathname();
@@ -64,7 +67,7 @@ export default function ProjectsFilter({
   const [sort, setSort] = useState(sortBy);
   const [order, setOrder] = useState<"asc" | "desc">(sortOrder);
   const [isFiltersVisible, setIsFiltersVisible] = useState(false);
-
+  const [searchTerm, setSearchTerm] = useState(search);
   // Apply filters
   const applyFilters = () => {
     const params = new URLSearchParams();
@@ -85,6 +88,10 @@ export default function ProjectsFilter({
       params.set("order", order);
     }
 
+    if (searchTerm) {
+      params.set("query", search);
+    }
+
     // Reset to page 1 when filters change
     params.set("page", "1");
 
@@ -97,6 +104,7 @@ export default function ProjectsFilter({
     setSkills([]);
     setSort("created_at");
     setOrder("desc");
+    setSearchTerm("");
     router.push(pathname);
   };
 
@@ -141,6 +149,7 @@ export default function ProjectsFilter({
           )}
         </div>
 
+        <SearchForm query={search} />
         <div className="flex items-center gap-2">
           <Select value={sort} onValueChange={setSort}>
             <SelectTrigger className="w-[180px] bg-primary-50 dark:bg-primary-100 border-primary text-primary-900  hover:bg-primary-200 dark:hover:bg-primary-200/90">

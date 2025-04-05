@@ -6,7 +6,9 @@ export default function ReadySection() {
   return (
     <section className="py-16 md:py-20 pink-container text-center text-white  ">
       <div className="max-container padding-container">
-        <h2 className="text-36-bold mb-4  ">Ready to Start Your Journey? </h2>
+        <h2 className="text-36-bold !text-white !dark:text-white mb-4  ">
+          Ready to Start Your Journey?{" "}
+        </h2>
         <p className="text-xl text-white/80 dark:text-white/90 mb-8 max-w-2xl mx-auto">
           Join our community of innovators, mentors, and collaborators to turn
           your vision into reality.

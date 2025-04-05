@@ -100,7 +100,6 @@ export default function ProjectForm() {
 
       const result = await createProject(prevState, formData);
 
-      console.log("Result", result);
       if (result.status == "SUCCESS") {
         toast.success("Project Created Successfully");
         router.push(`/projects/${result?.slug}`);
