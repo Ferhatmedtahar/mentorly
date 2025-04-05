@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧠 Mentorly
 
-## Getting Started
+**Mentorly** is a collaborative platform that connects developers, designers, and other tech professionals to bring ideas to life. Whether you're **seeking collaborators**, **offering mentorship**, or **looking for funding** and so much more , Mentorly helps you discover and connect with the right people.built for makers. It provides a space where individuals and teams can showcase projects, discover talent, and collaborate in meaningful ways. Whether you're launching a startup, building in public, or exploring open source —
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 🧑‍💻 **Project Showcase**: Create and highlight your projects with markdown-based descriptions and goals  
+- 🎯 **Skill-Based Matching**: Find collaborators based on tech stacks and required expertise  
+- 🤝 **Collaboration Types**: From mentorship to funding, define the type of collaboration you need  
+- 🔍 **Advanced Filtering**: Search and filter projects by skills, collaboration type, and keywords  
+- 📬 **Contact Options**: Share your contact info via email, GitHub, LinkedIn, or Twitter  
+- 🙋‍♂️ **User Profiles**: Showcase your skills, experience, and all the projects you're part of  
+- ❤️ **Engagement Metrics**: Projects support likes, views, and social signals  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Tech Stack
 
-To learn more about Next.js, take a look at the following resources:
+| Layer        | Tech                                      |
+|--------------|-------------------------------------------|
+| **Frontend** | Next.js 15 (App Router), React, TypeScript |
+| **Styling**  | Tailwind CSS, [shadcn/ui](https://ui.shadcn.com) components |
+| **Backend**  | Supabase (PostgreSQL,REST API) |
+| **Auth**     | Next Auth                             |
+| **Deployment** | Vercel                                  |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🧑‍🏫 Usage Guide
+Create your profile
 
-## Deploy on Vercel
+Browse existing projects or post your own
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Specify what type of collaboration you're open to
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Use filters or search to find matching opportunities
+
+Like and view projects to help others discover them
+
+
+
+### Made with ❤️ by Ferhat Mohamed Tahar
