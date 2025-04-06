@@ -1,5 +1,5 @@
 import { auth } from "@/auth";
-import ProjectForm from "@/components/general/ProjectForm";
+import ProjectForm from "@/components/forms/ProjectForm";
 import { redirect } from "next/navigation";
 
 const Page = async () => {

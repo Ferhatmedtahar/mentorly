@@ -31,10 +31,10 @@ import { useRouter } from "next/navigation";
 import { useActionState, useState } from "react";
 import { toast } from "sonner";
 import * as z from "zod";
+import ContactInputGroup from "../general/ContactInfo";
 import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
-import ContactInputGroup from "./ContactInfo";
 
 const groupedSkills = skillsOptions.reduce((acc, skill) => {
   if (!acc[skill.category]) {

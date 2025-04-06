@@ -14,8 +14,6 @@ const Navbar = () => {
   const [mounted, setMounted] = useState(false);
   const { data: session } = useSession();
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
-
-  console.log(session);
   useEffect(() => {
     setMounted(true);
   }, []);
