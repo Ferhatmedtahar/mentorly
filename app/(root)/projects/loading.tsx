@@ -4,7 +4,7 @@ export function ProjectsLoading() {
   return (
     <>
       {[1, 2, 3, 4, 5, 6].map((i) => (
-        <div key={i} className="startup-card group">
+        <div key={i} className="startup-card max-w-3xl group">
           <div className="flex justify-between items-start mb-3">
             <div className="flex items-center gap-2">
               <Skeleton className="h-8 w-8 rounded-full" />
