@@ -2,6 +2,12 @@ import { auth } from "@/auth";
 import ProjectForm from "@/components/forms/ProjectForm";
 import * as motion from "motion/react-client";
 import { redirect } from "next/navigation";
+import "server-only";
+export const metadata = {
+  title: "Submit Your Project",
+  description:
+    "Submit your project to our platform and find the right collaborators or mentors for your project.",
+};
 const Page = async () => {
   const session = await auth();
 

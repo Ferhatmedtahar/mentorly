@@ -1,5 +1,8 @@
 import Link from "next/link";
-
+export const metadata = {
+  title: "Cookies Policy",
+  description: "Cookies Policy of our platform",
+};
 export default function CookiesPage() {
   return (
     <section className="section-container">

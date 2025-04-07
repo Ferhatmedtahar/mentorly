@@ -5,10 +5,29 @@ import * as motion from "motion/react-client";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
+import "server-only";
 import UserLoading from "./loading";
 export const experimental_ppr = true;
 
-const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const supabase = await createClient();
+  const { id } = await params;
+  const { data: user } = await supabase
+    .from("profiles")
+    .select("name")
+    .eq("id", id)
+    .single();
+  return {
+    title: `${user?.name} | User`,
+    description: `User: ${user?.name} profile`,
+  };
+}
+
+export const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const supabase = await createClient();
   const { id } = await params;
   const session = await auth();

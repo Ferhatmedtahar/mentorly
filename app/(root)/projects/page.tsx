@@ -1,3 +1,4 @@
+import "server-only";
 import ProjectCard from "@/components/general/ProjectCard"; // ProjectCardProps,
 import { createClient } from "@/utils/supabase/server";
 import * as motion from "motion/react-client";

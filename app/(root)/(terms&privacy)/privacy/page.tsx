@@ -1,5 +1,8 @@
 import Link from "next/link";
-
+export const metadata = {
+  title: "Privacy Policy",
+  description: "Privacy Policy of our platform",
+};
 export default function PrivacyPage() {
   return (
     <section className="section-container">

@@ -2,6 +2,27 @@ import { auth } from "@/auth";
 import ProjectForm from "@/components/forms/ProjectForm";
 import { createClient } from "@/utils/supabase/server";
 import { notFound, redirect } from "next/navigation";
+import "server-only";
+
+export async function generateMetadata({
+  params,
+}: {
+  readonly params: Promise<{ slug: string }>;
+}) {
+  const supabase = await createClient();
+  const { slug } = await params;
+
+  const { data } = await supabase
+    .from("projects")
+    .select("title, description")
+    .eq("slug", slug)
+    .single();
+  return {
+    title: `Edit ${data?.title} | Project`,
+    description: `Edit Project: ${data?.title}
+    ${data?.description}`,
+  };
+}
 
 export default async function EditProjectPage({
   params,

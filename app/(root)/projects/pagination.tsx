@@ -75,7 +75,7 @@ export default function Pagination({
   const pageNumbers = getPageNumbers();
 
   return (
-    <div className="flex items-center justify-center space-x-2">
+    <div className="flex items-center justify-center space-x-2 mt-4 mb-4">
       <Button
         // variant="outline"
         size="icon"

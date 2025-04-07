@@ -9,10 +9,11 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ModeToggle } from "../ui/ModeToggle";
 
-const Navbar = () => {
+const Navbar = ({ user }: { user: any }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const { data: session } = useSession();
+
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
   useEffect(() => {
     setMounted(true);
@@ -67,7 +68,7 @@ const Navbar = () => {
                 </Button>
               </form>
 
-              <Link href={`/users/${session.user.id}`}>
+              <Link href={`/users/${user.id}`}>
                 <Avatar className="h-9 w-9">
                   <AvatarImage
                     src={session.user.image ?? ""}

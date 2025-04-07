@@ -9,6 +9,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import type { Project } from "@/types/Project";
 import { createClient } from "@/utils/supabase/server";
 import { formatDate } from "@/utils/utils";
+import "server-only";
 
 import { auth } from "@/auth";
 import markdownit from "markdown-it";
@@ -18,8 +19,28 @@ import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { ProjectsLoading } from "../loading";
 export const experimental_ppr = true;
-
 const md = markdownit();
+
+export async function generateMetadata({
+  params,
+}: {
+  readonly params: Promise<{ slug: string }>;
+}) {
+  const supabase = await createClient();
+  const { slug } = await params;
+
+  const { data } = await supabase
+    .from("projects")
+    .select("title, description")
+    .eq("slug", slug)
+    .single();
+  return {
+    title: `${data?.title} | Project`,
+    description: `Project: ${data?.title}
+    ${data?.description}`,
+  };
+}
+
 export default async function page({
   params,
 }: {

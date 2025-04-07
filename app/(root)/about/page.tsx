@@ -3,6 +3,13 @@ import HowItWorks from "@/components/sections/HowItWorks";
 import ReadySection from "@/components/sections/ReadySection";
 import { CircleDollarSign, Rocket, Users } from "lucide-react";
 import * as motion from "motion/react-client";
+import "server-only";
+
+export const metadata = {
+  title: "About Us",
+  description:
+    "Learn more about our platform and how it can help you find the right collaborators or mentors for your project.",
+};
 const About = () => {
   const guideCards = [
     {

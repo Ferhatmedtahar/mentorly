@@ -1,5 +1,8 @@
 import Link from "next/link";
-
+export const metadata = {
+  title: "Terms of Service",
+  description: "Terms of Service for our platform",
+};
 export default function TermsPage() {
   return (
     <section className="section-container">

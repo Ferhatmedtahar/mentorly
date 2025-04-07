@@ -3,7 +3,9 @@ import Navbar from "@/components/navigation/Navbar";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import type { Metadata } from "next";
 
+import { auth } from "@/auth";
 import { AuthProvider } from "@/providers/auth-provider";
+import { createClient } from "@/utils/supabase/server";
 import localFont from "next/font/local";
 import { Toaster } from "sonner";
 import "./globals.css";
@@ -64,11 +66,21 @@ export const metadata: Metadata = {
   description: "Mentorly is a platform for connecting mentors and mentees.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
+  const supabase = await createClient();
+  let data;
+  if (session) {
+    data = await supabase
+      .from("profiles")
+      .select("*")
+      .eq("email", session?.user?.email)
+      .single();
+  }
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${workSans.className} antialiased   `}>
@@ -80,7 +92,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <header className="sticky top-0 z-50 ">
-              <Navbar />
+              <Navbar user={data?.data} />
             </header>
             {children}
             <Toaster expand={false} richColors />
