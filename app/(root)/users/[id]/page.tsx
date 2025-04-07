@@ -27,7 +27,7 @@ export async function generateMetadata({
   };
 }
 
-export const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
+const UsersPage = async ({ params }: { params: Promise<{ id: string }> }) => {
   const supabase = await createClient();
   const { id } = await params;
   const session = await auth();
@@ -85,4 +85,4 @@ export const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   );
 };
 
-export default Page;
+export default UsersPage;
