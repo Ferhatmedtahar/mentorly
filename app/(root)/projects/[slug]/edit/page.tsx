@@ -1,3 +1,4 @@
+import { auth } from "@/auth";
 import ProjectForm from "@/components/forms/ProjectForm";
 import { createClient } from "@/utils/supabase/server";
 import { notFound, redirect } from "next/navigation";
@@ -5,18 +6,16 @@ import { notFound, redirect } from "next/navigation";
 export default async function EditProjectPage({
   params,
 }: {
-  params: { slug: string };
+  readonly params: Promise<{ slug: string }>;
 }) {
-  const { slug } = params;
+  const { slug } = await params;
   const supabase = await createClient();
-
+  const session = await auth();
   // Get the current user
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const user = session?.user;
 
   if (!user) {
-    redirect("/login");
+    redirect("/");
   }
 
   // Get the project
@@ -41,7 +40,7 @@ export default async function EditProjectPage({
         <h1 className="heading">Edit Project</h1>
       </div>
 
-      <ProjectForm {...project} isEditing={true} />
+      <ProjectForm project={project} isEditing={true} />
     </section>
   );
 }

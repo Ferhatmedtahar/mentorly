@@ -1,5 +1,6 @@
 "use client";
 import { createProject } from "@/actions/createProject";
+import { editProject } from "@/actions/editProject";
 import {
   Command,
   CommandEmpty,
@@ -36,6 +37,19 @@ import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { Textarea } from "../ui/textarea";
 
+interface ProjectFormProps {
+  id?: string;
+  title: string;
+  description: string;
+  details?: string;
+  skills: string[];
+  collaboration_type?: string;
+  contact_info?: Record<string, string>;
+  slug: string;
+  className?: string;
+  views?: number;
+}
+
 const groupedSkills = skillsOptions.reduce((acc, skill) => {
   if (!acc[skill.category]) {
     acc[skill.category] = [];
@@ -44,21 +58,31 @@ const groupedSkills = skillsOptions.reduce((acc, skill) => {
   return acc;
 }, {} as Record<string, typeof skillsOptions>);
 
-export default function ProjectForm() {
+export default function ProjectForm({
+  isEditing = false,
+  project = {} as ProjectFormProps,
+}: {
+  readonly isEditing?: boolean;
+  readonly project?: ProjectFormProps;
+}) {
   const { theme } = useTheme();
   const router = useRouter();
-  const [details, setDetails] = useState<string>("");
-  const [collaborationType, setCollaborationType] = useState<string>("");
-  const [selectedSkills, setSelectedSkills] = useState<string[]>([]);
+  const [details, setDetails] = useState<string>(project.details ?? "");
+  const [collaborationType, setCollaborationType] = useState<string>(
+    project.collaboration_type ?? ""
+  );
+  const [selectedSkills, setSelectedSkills] = useState<string[]>(
+    project.skills ?? []
+  );
   const [skillsOpen, setSkillsOpen] = useState(false);
   const [errors, setErrors] = useState<Record<string, string[]>>({});
 
   // Contact info state
   const [contactInfo, setContactInfo] = useState({
-    email: "",
-    linkedin: "",
-    twitter: "",
-    github: "",
+    email: project.contact_info?.email ?? "",
+    linkedin: project.contact_info?.linkedin ?? "",
+    twitter: project.contact_info?.twitter ?? "",
+    github: project.contact_info?.github ?? "",
   });
 
   const [state, formAction, isPending] = useActionState(handleSubmit, {
@@ -79,6 +103,8 @@ export default function ProjectForm() {
 
   async function handleSubmit(prevState: any, formData: FormData) {
     try {
+      let result;
+
       const fromValues = {
         title: formData.get("title") as string,
         description: formData.get("description") as string,
@@ -98,10 +124,17 @@ export default function ProjectForm() {
       formData.append("contactInfo", JSON.stringify(contactInfo));
       formData.append("details", details);
 
-      const result = await createProject(prevState, formData);
+      if (isEditing) {
+        formData.append("id", project.id as string);
+        result = await editProject(prevState, formData);
+      }
+      result = await createProject(prevState, formData);
 
-      if (result.status == "SUCCESS") {
+      if (result.status == "SUCCESS" && !isEditing) {
         toast.success("Project Created Successfully");
+        router.push(`/projects/${result?.slug}`);
+      } else {
+        toast.success("Project Updated Successfully");
         router.push(`/projects/${result?.slug}`);
       }
     } catch (error) {
@@ -144,7 +177,7 @@ export default function ProjectForm() {
           className="project-form-input"
           placeholder="Title of your Project"
           required
-          defaultValue={state?.inputs?.title}
+          defaultValue={project.title ?? state?.inputs?.title}
         />
         {errors.title && (
           <p className="project-form-error capitalize">{errors.title[0]}</p>
@@ -158,7 +191,7 @@ export default function ProjectForm() {
           className="project-form-textarea"
           placeholder="Description of your Project"
           required
-          defaultValue={state?.inputs?.description}
+          defaultValue={project.description ?? state?.inputs?.description}
         />
         {errors.description && (
           <p className="project-form-error">{errors.description[0]}</p>

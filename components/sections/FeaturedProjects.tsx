@@ -50,7 +50,7 @@ const FeaturedProjects = async ({ query }: { query: string | undefined }) => {
           className="border-primary-600 text-brand-pink hover:bg-primary-500 hover:border-primary-800 hover:text-white transition-colors duration-200 ease-in-out"
           asChild
         >
-          <Link href="/projects">
+          <Link href="/projects?sort=created_at&order=desc&page=1">
             View All
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>

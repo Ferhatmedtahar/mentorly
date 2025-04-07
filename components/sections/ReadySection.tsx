@@ -30,7 +30,9 @@ export default function ReadySection() {
             size="lg"
             asChild
           >
-            <Link href="/projects">Browse Projects</Link>
+            <Link href="/projects?sort=created_at&order=desc&page=1">
+              Browse Projects
+            </Link>
           </Button>
         </div>
       </div>

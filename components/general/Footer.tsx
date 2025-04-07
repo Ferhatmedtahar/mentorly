@@ -52,7 +52,7 @@ const Footer = () => {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link
-                  href="/projects"
+                  href="/projects?sort=created_at&order=desc&page=1"
                   className="text-gray-700 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-300 transition-colors duration-200 ease-in-out"
                 >
                   Browse Projects

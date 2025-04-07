@@ -15,9 +15,9 @@ import { useState } from "react";
 import { toast } from "sonner";
 
 interface ProjectActionsProps {
-  projectId: string;
-  projectSlug: string;
-  isOwner: boolean;
+  readonly projectId: string;
+  readonly projectSlug: string;
+  readonly isOwner: boolean;
 }
 
 export default function ProjectActions({
@@ -49,7 +49,7 @@ export default function ProjectActions({
       }
 
       toast.success("Project deleted successfully");
-      router.push("/projects");
+      router.push("/projects?sort=created_at&order=desc&page=1");
     } catch (error) {
       console.error("Error deleting project:", error);
       toast.error("Failed to delete project");

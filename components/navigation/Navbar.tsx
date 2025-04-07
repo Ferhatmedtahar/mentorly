@@ -30,7 +30,9 @@ const Navbar = () => {
 
           <div className="hidden md:flex items-center space-x-6 text-sm font-medium">
             <li className="transition-colors hover:text-primary">
-              <Link href="/projects">Explore</Link>
+              <Link href="/projects?sort=created_at&order=desc&page=1">
+                Explore
+              </Link>
             </li>
 
             <li className="transition-colors hover:text-primary">
@@ -130,7 +132,10 @@ const Navbar = () => {
             <div className="flex flex-col justify-center h-full px-6 shadow-xl border-b border-primary">
               <ul className="flex flex-col space-y-6 pt-16 pb-6 items-center dark:text-black">
                 <li className="py-2 transition-colors hover:text-primary">
-                  <Link href="/projects" onClick={toggleMenu}>
+                  <Link
+                    href="/projects?sort=created_at&order=desc&page=1"
+                    onClick={toggleMenu}
+                  >
                     Explore
                   </Link>
                 </li>
