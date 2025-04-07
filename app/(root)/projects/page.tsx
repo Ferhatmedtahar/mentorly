@@ -1,13 +1,18 @@
-import "server-only";
 import ProjectCard from "@/components/general/ProjectCard"; // ProjectCardProps,
 import { createClient } from "@/utils/supabase/server";
 import * as motion from "motion/react-client";
 import { Suspense } from "react";
+import "server-only";
 import { ProjectsLoading } from "./loading";
 import Pagination from "./pagination";
 import ProjectsFilter from "./projects.filter";
 export const dynamic = "force-dynamic";
 
+export const metadata = {
+  title: "Projects | Mentorly",
+  description:
+    "Join Mentorly, the platform where developers and creatives unite to turn ideas into impactful projects through mentorship and support.",
+};
 export default async function ProjectsPage({
   searchParams,
 }: {

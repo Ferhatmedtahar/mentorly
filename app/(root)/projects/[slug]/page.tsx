@@ -21,6 +21,11 @@ import { ProjectsLoading } from "../loading";
 export const experimental_ppr = true;
 const md = markdownit();
 
+export async function generateStaticParams() {
+  const supabase = await createClient();
+  const { data } = await supabase.from("projects").select("slug").limit(10);
+  return data?.map((project) => ({ slug: project.slug })) || [];
+}
 export async function generateMetadata({
   params,
 }: {

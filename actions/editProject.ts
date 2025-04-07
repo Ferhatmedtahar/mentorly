@@ -2,6 +2,7 @@
 import { auth } from "@/auth";
 import { createClient } from "@/utils/supabase/server";
 import { parseServerActionResponse } from "@/utils/utils";
+import { revalidatePath } from "next/cache";
 
 export async function editProject(state: any, formData: FormData) {
   // Server action to edit a project
@@ -88,6 +89,9 @@ export async function editProject(state: any, formData: FormData) {
         status: "ERROR",
       });
     }
+
+    revalidatePath("/projects");
+    revalidatePath(`/projects/${projectData.slug}`); // individual project page
 
     return parseServerActionResponse({
       ...result[0],

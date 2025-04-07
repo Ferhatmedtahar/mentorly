@@ -4,7 +4,7 @@ import Hero from "@/components/sections/Hero";
 import "server-only";
 
 export const metadata = {
-  title: "Mentorly – Collaborate, Build, and Launch Ideas",
+  title: "Mentorly",
   description:
     "Mentorly is a collaborative platform connecting developers, designers, and tech professionals to co-create projects, share mentorship, and access funding opportunities.",
   keywords: [

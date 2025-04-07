@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+Disallow:
+Sitemap: https://mentorly-beryl.vercel.app/sitemap.xml

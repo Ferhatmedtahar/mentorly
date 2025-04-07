@@ -2,6 +2,7 @@
 import { auth } from "@/auth";
 import { createClient } from "@/utils/supabase/server";
 import { parseServerActionResponse } from "@/utils/utils";
+import { revalidatePath } from "next/cache";
 import slugify from "slugify";
 export async function createProject(state: any, formData: FormData) {
   //server action to create a project
@@ -67,6 +68,8 @@ export async function createProject(state: any, formData: FormData) {
         status: "ERROR",
       });
     }
+
+    revalidatePath("/projects");
 
     return parseServerActionResponse({
       ...result[0],
