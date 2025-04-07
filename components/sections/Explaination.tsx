@@ -1,7 +1,6 @@
 import { BookOpenIcon, LightbulbIcon, UsersIcon } from "lucide-react";
 import GuideCard from "../general/GuideCard";
 import ReadySection from "./ReadySection";
-
 export default function Explaination() {
   const guideCards = [
     {
@@ -29,8 +28,9 @@ export default function Explaination() {
         <h2 className="text-30-bold text-center mb-10">How It Works</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {guideCards.map((card) => (
+          {guideCards.map((card, index) => (
             <GuideCard
+              animationIndex={index}
               key={`guide-card-${card.id}`}
               heading={card.heading}
               desc={card.desc}

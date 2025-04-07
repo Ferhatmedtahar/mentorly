@@ -4,9 +4,9 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <footer className="border-t border-border/40 bg-background py-6 sm:py-8">
-      <div className="container mx-auto px-4">
+      <div className="max-container padding-container px-4">
         {/* Main footer content */}
-        <div className="grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4">
+        <div className="w-full  grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4">
           {/* Company info */}
           <div className="col-span-2 sm:col-span-2 md:col-span-1 space-y-3">
             <h4 className="text-lg font-bold gradient">{"<Mentorly>"}</h4>

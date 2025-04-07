@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils";
 import { Author } from "@/types/Author";
 import { createClient } from "@/utils/supabase/server";
 import { Eye, Heart } from "lucide-react";
+import * as motion from "motion/react-client";
 import Image from "next/image";
-
 export interface ProjectCardProps {
   id?: string;
   title: string;
@@ -21,6 +21,7 @@ export interface ProjectCardProps {
 }
 
 const ProjectCard = async ({
+  animationIndex,
   id,
   title,
   description,
@@ -30,7 +31,7 @@ const ProjectCard = async ({
   slug,
   className,
   views,
-}: ProjectCardProps) => {
+}: ProjectCardProps & { animationIndex: number }) => {
   const supabase = await createClient();
   const { data: likes, error } = await supabase
     .from("likes")
@@ -45,7 +46,17 @@ const ProjectCard = async ({
   const likeCount = likes?.length;
 
   return (
-    <div className={cn("startup-card group", className)}>
+    <motion.div
+      initial={{ opacity: 0, y: 20, scale: 0.95 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true }}
+      transition={{
+        duration: 0.8,
+        ease: "easeInOut",
+        delay: animationIndex * 0.2,
+      }}
+      className={cn("startup-card group", className)}
+    >
       <div className="flex justify-between items-start mb-3">
         <Link
           href={`/profile/${profiles?.username}`}
@@ -116,7 +127,7 @@ const ProjectCard = async ({
           View Details →
         </Link>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

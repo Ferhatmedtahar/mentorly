@@ -1,7 +1,7 @@
 import { auth } from "@/auth";
 import ProjectForm from "@/components/forms/ProjectForm";
+import * as motion from "motion/react-client";
 import { redirect } from "next/navigation";
-
 const Page = async () => {
   const session = await auth();
 
@@ -11,9 +11,19 @@ const Page = async () => {
 
   return (
     <>
-      <section className="bg-primary flexCenter pattern !min-h-[230px]">
+      <motion.section
+        viewport={{ once: true }}
+        initial={{ opacity: 0, y: 5, scale: 0.99 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{
+          duration: 0.3,
+          ease: "easeInOut",
+          delay: 0.1,
+        }}
+        className="bg-primary flexCenter pattern !min-h-[230px]"
+      >
         <h1 className="heading">Submit Your Project</h1>
-      </section>
+      </motion.section>
 
       <ProjectForm />
     </>

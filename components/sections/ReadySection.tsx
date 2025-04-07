@@ -1,10 +1,20 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import * as motion from "motion/react-client";
 import Link from "next/link";
-
 export default function ReadySection() {
   return (
-    <section className="py-16 md:py-20 pink-container text-center text-white  ">
+    <motion.section
+      initial={{ opacity: 0 }}
+      viewport={{ once: true }}
+      whileInView={{ opacity: 1 }}
+      transition={{
+        duration: 0.6,
+        ease: "easeInOut",
+        delay: 0.5,
+      }}
+      className="py-16 md:py-20 pink-container text-center text-white  "
+    >
       <div className="max-container padding-container">
         <h2 className="text-36-bold !text-white !dark:text-white mb-4  ">
           Ready to Start Your Journey?{" "}
@@ -36,6 +46,6 @@ export default function ReadySection() {
           </Button>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

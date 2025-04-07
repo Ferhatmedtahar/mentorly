@@ -1,7 +1,8 @@
+import BenefitList from "@/components/general/Benifits";
 import HowItWorks from "@/components/sections/HowItWorks";
 import ReadySection from "@/components/sections/ReadySection";
-import { CircleDollarSign, Clock, Rocket, StarIcon, Users } from "lucide-react";
-
+import { CircleDollarSign, Rocket, Users } from "lucide-react";
+import * as motion from "motion/react-client";
 const About = () => {
   const guideCards = [
     {
@@ -26,7 +27,17 @@ const About = () => {
   return (
     <main>
       {/* Hero Section */}
-      <section className="py-28 bg-primary pattern  ">
+      <motion.section
+        initial={{ opacity: 0, y: 1 }}
+        viewport={{ once: true }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.3,
+          ease: "easeInOut",
+          delay: 0,
+        }}
+        className="py-28 bg-primary pattern  "
+      >
         <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
           <h1 className="heading mb-6">About Mentorly</h1>
           <p className="sub-heading mb-8">
@@ -34,10 +45,20 @@ const About = () => {
             bring great ideas to life
           </p>
         </div>
-      </section>
+      </motion.section>
 
       {/* Our Mission */}
-      <section className="py-16">
+      <motion.section
+        viewport={{ once: true }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{
+          duration: 0.3,
+          ease: "easeInOut",
+          delay: 0.2,
+        }}
+        className="py-16"
+      >
         <div className="max-container padding-container ">
           <h2 className="text-30-bold text-center mb-10">Our Mission</h2>
           <div className=" border-[3px] border-primary-400 p-8 rounded-[22px] shadow-100 max-w-3xl sm:max-w-4xl md:max-w-5xl mx-auto">
@@ -59,7 +80,7 @@ const About = () => {
             </p>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* How It Works */}
       <div className="border-y border-primary-400">
@@ -67,12 +88,23 @@ const About = () => {
       </div>
 
       {/* Benefits */}
-      <section className="py-16">
+      <motion.section
+        viewport={{ once: true }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{
+          duration: 0.4,
+          ease: "easeInOut",
+          delay: 0.6,
+        }}
+        className="py-16"
+      >
         <div className="max-container padding-container">
           <h2 className="text-30-bold text-center mb-12">
             Benefits of Using Mentorly
           </h2>
-          <div className="grid md:grid-cols-2 gap-10 ">
+          <BenefitList />
+          {/* <div className="grid md:grid-cols-2 gap-10 ">
             <div className="flex gap-4 ">
               <div className="flex-shrink-0">
                 <div className="w-12 h-12 bg-primary-100 rounded-full flex items-center justify-center">
@@ -133,9 +165,9 @@ const About = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
-      </section>
+      </motion.section>
 
       {/* CTA Section */}
 

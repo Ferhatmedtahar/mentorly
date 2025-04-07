@@ -178,8 +178,12 @@ export default async function page({
               <p className="text-30-semibold">You might also like</p>
 
               <ul className="mt-7 grid sm:grid-cols-2 gap-5">
-                {editorPosts.map((project: ProjectCardProps) => (
-                  <ProjectCard key={project.id} {...project} />
+                {editorPosts.map((project: ProjectCardProps, index) => (
+                  <ProjectCard
+                    animationIndex={index}
+                    key={project.id}
+                    {...project}
+                  />
                 ))}
               </ul>
             </div>

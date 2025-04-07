@@ -27,6 +27,7 @@ import { cn } from "@/lib/utils";
 import { projectSchema } from "@/lib/validation";
 import MDEditor from "@uiw/react-md-editor";
 import { Check, ChevronsUpDown, X } from "lucide-react";
+import { motion } from "motion/react";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/navigation";
 import { useActionState, useState } from "react";
@@ -168,7 +169,18 @@ export default function ProjectForm({
   };
 
   return (
-    <form className="project-form flex flex-col gap-1" action={formAction}>
+    <motion.form
+      viewport={{ once: true }}
+      initial={{ opacity: 0, y: 10, scale: 0.99 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{
+        duration: 0.4,
+        ease: "easeInOut",
+        delay: 0.3,
+      }}
+      className="project-form flex flex-col gap-1"
+      action={formAction}
+    >
       <div>
         <Label className="project-form-label">title</Label>
         <input
@@ -348,6 +360,6 @@ export default function ProjectForm({
       <Button type="submit" className="project-form-button" size={"lg"}>
         {isPending ? "Submitting..." : "Submit"}
       </Button>
-    </form>
+    </motion.form>
   );
 }

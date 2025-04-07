@@ -1,10 +1,10 @@
 import ProjectCard from "@/components/general/ProjectCard"; // ProjectCardProps,
 import { createClient } from "@/utils/supabase/server";
+import * as motion from "motion/react-client";
 import { Suspense } from "react";
 import { ProjectsLoading } from "./loading";
 import Pagination from "./pagination";
 import ProjectsFilter from "./projects.filter";
-
 export const dynamic = "force-dynamic";
 
 export default async function ProjectsPage({
@@ -65,11 +65,27 @@ export default async function ProjectsPage({
 
   const totalPages = count ? Math.ceil(count / pageSize) : 0;
   return (
-    <section className="section-container">
-      <div className=" bg-primary pattern text-center !min-h-[230px] flexCenter mb-10 ">
-        <h1 className="heading">Projects</h1>
-      </div>
-      <div>
+    <section className="">
+      <motion.div
+        viewport={{ once: true }}
+        initial={{ opacity: 0, y: 5, scale: 0.99 }}
+        whileInView={{ opacity: 1, y: 0, scale: 1 }}
+        transition={{
+          duration: 0.3,
+          ease: "easeInOut",
+          delay: 0.1,
+        }}
+        className="py-20 bg-primary pattern   flexCenter flex-col gap-2"
+      >
+        <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
+          <h1 className="heading">Projects</h1>
+          <p className="sub-heading mb-8">
+            Explore a diverse range of projects and find the perfect opportunity
+            to collaborate, learn, and grow.
+          </p>
+        </div>
+      </motion.div>
+      <div className="section-container">
         <Suspense fallback={<div>Loading filters...</div>}>
           <ProjectsFilter
             selectedCollaborationType={collaborationType}
@@ -83,8 +99,9 @@ export default async function ProjectsPage({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
           <Suspense fallback={<ProjectsLoading />}>
             {projects && projects.length > 0 ? (
-              projects.map((project) => (
+              projects.map((project, index) => (
                 <ProjectCard
+                  animationIndex={index}
                   key={project.id}
                   id={project.id}
                   title={project.title}

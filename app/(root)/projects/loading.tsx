@@ -38,8 +38,8 @@ export function ProjectsLoading() {
 
 export default function Loading() {
   return (
-    <div className="container mx-auto py-8">
-      <Skeleton className="h-10 w-40 mb-8" />
+    <div className="max-container padding-container py-8">
+      <Skeleton className="h-[230px] w-full mb-8" />
 
       <Skeleton className="h-12 w-full mb-8" />
 

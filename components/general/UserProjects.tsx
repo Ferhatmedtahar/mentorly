@@ -17,8 +17,12 @@ export default async function UserProjects({
   return (
     <>
       {userProjects.length > 0 ? (
-        userProjects.map((project) => (
-          <ProjectCard key={project.id} {...(project as ProjectCardProps)} />
+        userProjects.map((project, index) => (
+          <ProjectCard
+            animationIndex={index}
+            key={project.id}
+            {...(project as ProjectCardProps)}
+          />
         ))
       ) : (
         <EmptyProfile />

@@ -60,8 +60,9 @@ const FeaturedProjects = async ({ query }: { query: string | undefined }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <Suspense fallback={<ProjectsLoading />}>
           {projects.length > 0 ? (
-            projects.map((project) => (
+            projects.map((project, index) => (
               <ProjectCard
+                animationIndex={index}
                 key={project.id}
                 {...(project as ProjectCardProps)}
               />
