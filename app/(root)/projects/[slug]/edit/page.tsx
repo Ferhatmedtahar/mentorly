@@ -1,8 +1,8 @@
+import "server-only";
 import { auth } from "@/auth";
 import ProjectForm from "@/components/forms/ProjectForm";
 import { createClient } from "@/utils/supabase/server";
 import { notFound, redirect } from "next/navigation";
-import "server-only";
 
 export async function generateMetadata({
   params,

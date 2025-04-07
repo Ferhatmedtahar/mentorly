@@ -18,13 +18,44 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { ProjectsLoading } from "../loading";
+import { createBrowserClient } from "@supabase/ssr";
 export const experimental_ppr = true;
 const md = markdownit();
 
+// export async function generateStaticParams() {
+//   const supabase = await createClient();
+//   const { data } = await supabase.from("projects").select("slug").limit(10);
+//   return data?.map((project) => ({ slug: project.slug })) || [];
+// }
 export async function generateStaticParams() {
-  const supabase = await createClient();
-  const { data } = await supabase.from("projects").select("slug").limit(10);
-  return data?.map((project) => ({ slug: project.slug })) || [];
+  // Use the standard client, initialized directly with ENV VARS
+  // Ensure these environment variables are available during the build process!
+  const supabase = createBrowserClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+  );
+
+  console.log("generateStaticParams: Fetching slugs..."); // Add logging
+  const { data, error } = await supabase
+    .from("projects")
+    .select("slug")
+    .limit(10); // Consider if limiting to 10 is intended for static generation
+
+  if (error) {
+    console.error("generateStaticParams Error:", error);
+    return [];
+  }
+
+  if (!data) {
+    console.log("generateStaticParams: No slugs found.");
+    return [];
+  }
+
+  console.log(
+    "generateStaticParams: Found slugs:",
+    data.map((p) => p.slug)
+  );
+  return data.map((project) => ({ slug: project.slug }));
 }
 export async function generateMetadata({
   params,
