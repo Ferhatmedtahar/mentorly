@@ -239,6 +239,7 @@ export default function ProjectForm({
           <Popover open={skillsOpen} onOpenChange={setSkillsOpen}>
             <PopoverTrigger asChild>
               <Button
+                aria-label="Select skills"
                 variant="outline"
                 className="project-form-input w-full justify-between "
               >
@@ -357,7 +358,12 @@ export default function ProjectForm({
         )}
       </div>
 
-      <Button type="submit" className="project-form-button" size={"lg"}>
+      <Button
+        aria-label="Submit Project"
+        type="submit"
+        className="project-form-button"
+        size={"lg"}
+      >
         {isPending ? "Submitting..." : "Submit"}
       </Button>
     </motion.form>

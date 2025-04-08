@@ -63,6 +63,7 @@ export default function ProjectActions({
     <>
       <div className="flex items-center gap-2">
         <Button
+          aria-label="Edit Project"
           size="sm"
           className="cursor-pointer border bg-transparent text-yellow-600 hover:text-yellow-700 dark:border-yellow-500 dark:text-yellow-500 hover:bg-yellow-50 dark:hover:text-yellow-600 dark:hover:bg-yellow-900/30"
           onClick={handleEdit}
@@ -71,6 +72,7 @@ export default function ProjectActions({
           Edit
         </Button>
         <Button
+          aria-label="Delete Project"
           size="sm"
           className="cursor-pointer border border-red-600 dark:border-red-900 text-red-600 bg-transparent hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-950/30"
           onClick={() => setIsDeleteDialogOpen(true)}
@@ -93,6 +95,7 @@ export default function ProjectActions({
           </DialogHeader>
           <DialogFooter className="flex flex-col sm:flex-row sm:justify-between gap-2">
             <Button
+              aria-label="cancel"
               variant="outline"
               className="dark:hover:bg-slate-300 hover:bg-primary-200 border-primary-900 cursor-pointer"
               onClick={() => setIsDeleteDialogOpen(false)}
@@ -100,6 +103,7 @@ export default function ProjectActions({
               Cancel
             </Button>
             <Button
+              aria-label="delete"
               variant="destructive"
               onClick={handleDelete}
               disabled={isDeleting}

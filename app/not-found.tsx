@@ -8,6 +8,7 @@ export default function notFound() {
         Page not found
       </h1>
       <Button
+        aria-label="Back to Home"
         size={"lg"}
         className="bg-primary hover:bg-primary/90 md:flex gap-1 items-center"
       >

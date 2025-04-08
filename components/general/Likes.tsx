@@ -63,6 +63,7 @@ export default function Likes({
   return (
     <div className="flex justify-end items-center">
       <button
+        aria-label="Like"
         onClick={handleLike}
         disabled={isPending}
         className="text-muted-foreground hover:text-primary transition-colors cursor-pointer flexCenter flex-col"

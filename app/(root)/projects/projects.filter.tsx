@@ -128,6 +128,7 @@ export default function ProjectsFilter({
       <div className="flex flex-col md:flex-row justify-between gap-4">
         <div className="flex items-center gap-2">
           <Button
+            aria-label="Filters"
             variant="outline"
             onClick={() => setIsFiltersVisible(!isFiltersVisible)}
             size="sm"
@@ -139,6 +140,7 @@ export default function ProjectsFilter({
 
           {(collaborationType || skills.length > 0) && (
             <Button
+              aria-label="Clear filters"
               variant="ghost"
               onClick={resetFilters}
               size="sm"
@@ -169,6 +171,7 @@ export default function ProjectsFilter({
           </Select>
 
           <Button
+            aria-label="Toggle sort order"
             variant="outline"
             size="icon"
             onClick={toggleSortOrder}
@@ -212,6 +215,7 @@ export default function ProjectsFilter({
             <Popover open={skillsOpen} onOpenChange={setSkillsOpen}>
               <PopoverTrigger asChild>
                 <Button
+                  aria-label="Select skills"
                   variant="outline"
                   className="project-form-input w-full justify-between "
                 >

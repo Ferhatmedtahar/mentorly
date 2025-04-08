@@ -11,8 +11,11 @@ const SearchFormReset = () => {
   };
 
   return (
-    <button type="reset" onClick={reset}>
-      <Link href="/" className="search-btn text-white">
+    <button aria-label="Reset the form" type="reset" onClick={reset}>
+      <Link
+        href="/projects?sort=created_at&order=desc&page=1"
+        className="search-btn text-white"
+      >
         <X className="size-5" />
       </Link>
     </button>

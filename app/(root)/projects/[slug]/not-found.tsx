@@ -35,7 +35,10 @@ export default function NotFound() {
         </div>
 
         <Link href="/projects?sort=created_at&order=desc&page=1">
-          <Button className="bg-primary hover:bg-primary/90 text-white px-6 py-2">
+          <Button
+            aria-label="Return to Projects"
+            className="bg-primary hover:bg-primary/90 text-white px-6 py-2"
+          >
             Return to Projects
           </Button>
         </Link>

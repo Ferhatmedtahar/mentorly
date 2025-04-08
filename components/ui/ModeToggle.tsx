@@ -20,7 +20,7 @@ export function ModeToggle() {
         asChild
         className=" rounded-full p-1 bg-primary-200 dark:bg-primary-100 hover:bg-primary-200 dark:hover:bg-primary-200 cursor-pointer border border-primary-300 dark:border-primary-400 focus:outline-none focus:ring focus:ring-primary-200 "
       >
-        <Button variant="outline" size="icon">
+        <Button aria-label="Toggle theme" variant="outline" size="icon">
           <Sun className="h-[1.3rem] w-[1.3rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0  text-primary-900 " />
           <Moon className="absolute h-[1.3rem] w-[1.3rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 text-primary-800 " />
           {/* <span className="sr-only">Toggle theme</span> */}

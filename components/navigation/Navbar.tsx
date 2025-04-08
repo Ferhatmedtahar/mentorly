@@ -25,9 +25,11 @@ const Navbar = ({ user }: { user: any }) => {
     >
       <div className="max-container padding-container flex items-center justify-between gap-10 py-3 px-4">
         <ul className="flex items-center space-x-6">
-          <Link href="/" className="flex items-center space-x-2">
-            <li className="text-xl font-bold gradient">{"<Mentorly>"}</li>
-          </Link>
+          <li className="flex items-center space-x-2">
+            <Link className="text-xl font-bold gradient" href="/">
+              {"<Mentorly>"}
+            </Link>
+          </li>
 
           <div className="hidden md:flex items-center space-x-6 text-sm font-medium">
             <li className="transition-colors hover:text-primary">
@@ -45,6 +47,7 @@ const Navbar = ({ user }: { user: any }) => {
           {session?.user ? (
             <>
               <Button
+                aria-label="Create Project"
                 variant="default"
                 size="sm"
                 className=" text-primary-800 bg-primary-200 dark:bg-primary-100 hover:bg-primary-300/90 dark:hover:bg-primary-200 cursor-pointer border border-primary-300 dark:border-primary-400 focus:outline-none focus:ring focus:ring-primary-200"
@@ -57,6 +60,7 @@ const Navbar = ({ user }: { user: any }) => {
               </Button>
               <form action={logoutUser}>
                 <Button
+                  aria-label="Logout"
                   variant="ghost"
                   size="icon"
                   // className="rounded-full p-1  bg-primary hover:bg-primary-700 cursor-pointer border border-primary-300 dark:border-primary-400 focus:outline-none focus:ring focus:ring-primary-200 "
@@ -86,6 +90,7 @@ const Navbar = ({ user }: { user: any }) => {
             <>
               <form action={loginWithGithub}>
                 <Button
+                  aria-label="Login with Github"
                   type="submit"
                   className="login inline-flex items-center gap-2 cursor-pointer border border-primary dark:border-primary-700 bg-primary-200 hover:bg-white dark:bg-primary-100 dark:hover:bg-primary-50 text-primary-800 dark:text-primary-800 transition-colors duration-200 ease-in-out"
                 >
@@ -155,6 +160,7 @@ const Navbar = ({ user }: { user: any }) => {
                   <>
                     <li className="py-2">
                       <Button
+                        aria-label="toggle create project"
                         variant="default"
                         className="bg-primary hover:bg-primary/90 gap-1 items-center w-full"
                         asChild
@@ -169,6 +175,7 @@ const Navbar = ({ user }: { user: any }) => {
                     <li className="py-2">
                       <form action={logoutUser} onSubmit={toggleMenu}>
                         <Button
+                          aria-label="Logout"
                           variant="ghost"
                           className="w-full border border-primary"
                           type="submit"
@@ -200,6 +207,7 @@ const Navbar = ({ user }: { user: any }) => {
                   <li className="py-2 flex flex-col gap-4 w-full">
                     <form action={loginWithGithub} onSubmit={toggleMenu}>
                       <Button
+                        aria-label="Login with Github"
                         type="submit"
                         className="inline-flex items-center gap-2 w-full"
                       >

@@ -46,6 +46,7 @@ const FeaturedProjects = async ({ query }: { query: string | undefined }) => {
           {query ? `Search results for "${query}"` : "Featured Projects"}
         </h2>
         <Button
+          aria-label="View All Projectsq"
           variant="outline"
           className="border-primary-600 text-brand-pink hover:bg-primary-500 hover:border-primary-800 hover:text-white transition-colors duration-200 ease-in-out"
           asChild

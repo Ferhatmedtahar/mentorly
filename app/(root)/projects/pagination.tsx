@@ -77,6 +77,7 @@ export default function Pagination({
   return (
     <div className="flex items-center justify-center space-x-2 mt-4 mb-4">
       <Button
+        aria-label="Previous Page"
         // variant="outline"
         size="icon"
         onClick={() => router.push(createPageURL(currentPage - 1))}
@@ -90,6 +91,7 @@ export default function Pagination({
         if (page === "ellipsis1" || page === "ellipsis2") {
           return (
             <Button
+              aria-label="Ellipsis"
               key={`ellipsis-${index}`}
               variant="ghost"
               size="icon"
@@ -103,6 +105,7 @@ export default function Pagination({
         return (
           <Button
             key={page}
+            aria-label="Page"
             className="hover:bg-primary-300 cursor-pointer"
             variant={currentPage === page ? "default" : "outline"}
             onClick={() => router.push(createPageURL(page))}
@@ -115,6 +118,7 @@ export default function Pagination({
       <Button
         // variant="outline"
         size="icon"
+        aria-label="Next Page"
         onClick={() => router.push(createPageURL(currentPage + 1))}
         disabled={currentPage >= totalPages}
         className="bg-primary-500 hover:bg-primary/90"

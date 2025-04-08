@@ -48,6 +48,7 @@ export default function ProjectsError({
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button
+            aria-label="try again"
             onClick={() => reset()}
             className="bg-primary hover:bg-primary/90 text-white flex items-center gap-2"
           >
@@ -57,6 +58,7 @@ export default function ProjectsError({
 
           <Link href="/">
             <Button
+              aria-label="return to home"
               variant="outline"
               className="border border-primary-300 dark:border-primary-700 text-primary-800 dark:text-primary-200 hover:bg-primary-50 dark:hover:bg-primary-900/30 flex items-center gap-2"
             >

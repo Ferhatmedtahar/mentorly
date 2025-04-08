@@ -43,6 +43,7 @@ export default function GlobalError({
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button
+            aria-label="Refresh the page"
             onClick={() => reset()}
             className="bg-primary hover:bg-primary/90 text-white flex items-center gap-2 px-6 py-2"
           >
@@ -52,6 +53,7 @@ export default function GlobalError({
 
           <Link href="/">
             <Button
+              aria-label="Return to home"
               variant="outline"
               className="border-2 border-primary-300 dark:border-primary-700 text-primary-800 dark:text-primary-200 hover:bg-primary-50 dark:hover:bg-primary-900/30 flex items-center gap-2 px-6 py-2"
             >

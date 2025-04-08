@@ -25,6 +25,7 @@ export default function ReadySection() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button
+            aria-label="Start Your Project"
             className="bg-primary-600 hover:bg-primary-700 text-white"
             size="lg"
             asChild
@@ -35,6 +36,7 @@ export default function ReadySection() {
             </Link>
           </Button>
           <Button
+            aria-label="Browse Projects"
             variant="outline"
             className="border-white text-white hover:bg-transparent hover:text-white "
             size="lg"

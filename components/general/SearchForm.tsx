@@ -25,7 +25,11 @@ export default function SearchForm({
         <div className="flex gap-2">
           {query && <SearchFormReset />}
 
-          <button type="submit" className="search-btn text-white">
+          <button
+            aria-label="Search"
+            type="submit"
+            className="search-btn text-white"
+          >
             <Search className="size-5" />
           </button>
         </div>
